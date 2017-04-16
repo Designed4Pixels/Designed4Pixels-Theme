@@ -1,0 +1,159 @@
+CHANGELOG
+
+= 0.7.0 =
+Date: 15th April 2017
+* Added Widgets for Home Page Featured Sections.
+* Added Autodetection of Widgets to Customizer Color Settings.
+* Added ability for Opaque Header and Menus.
+* Added Home Page Image Borders to Customizer Color Settings.
+* Added improved Off-Canvas Content Areas (Top, Left, Right, & Bottom).
+
+= 0.6.6 =
+Date: 3rd March 2017
+* Improved the use of Panels for Custom Color Settings.
+* (Beta) Added Alpha Color Picker for Image Mask Settings.
+
+= 0.6.5 =
+Date: 1st March 2017
+* Updated Customizer to use Panels for Custom Color Settings.
+
+= 0.6.4 =
+Date: 27th February 2017
+* Update to fixed background images in home page featured sections.
+* update to Custom Portfolio page.
+
+= 0.6.3 =
+Date: 9th February 2017
+* Fixed Portfolio Customizer Color Setting Visibility Problem.
+* Corrected the Portfolio Project Detail Fields.
+
+= 0.6.2 =
+Date: 5th February 2017
+* Added Button Color Support to Customizer Color Scheme Settings.
+
+= 0.6.1 =
+Date: 4th February 2017
+* Changed Theme Updater to use WP-Update Service.
+
+= 0.6.0 =
+Date: 27th January 2017
+* Addition of Custom Color Scheme via Customizer.
+
+= 0.5.2 =
+Date: 9th January 2017
+* Improved Default Minimal Color CSS.
+* Added Custom Fields & Custom Archive Settings.
+
+= 0.5.1 =
+Date: 3rd January 2017
+* Improved Color Scheme CSS Structure.
+
+= 0.5.0 =
+Date: 30th December 2016
+* New Directory Structure.
+* Updated Gulp Files with New Commands.
+* Split Build Environment from Theme Files.
+* Added Custom Post Type for Creating Custom Archive Pages.
+
+= 0.4.1 =
+Date: 8th December 2016
+* Major update to create single version of Designed4Pixels Theme.
+
+= 0.3.0 =
+Date: 26th July 2016
+* Removed the addition of <br> tags in main content by wpautop.
+
+= 0.2.9 =
+Date: 22nd July 2016
+* Converted Color Scheme Settings to use Mixins.
+* Improved Foundation 6 Integration.
+
+= 0.2.8 =
+Date: 16th July 2016
+* Further tidying and improvements to CSS.
+* Tidying of 'Lite' Theme color settings.
+* [PRO] Added integration with 'EDD Download Info' Plugin.
+
+= 0.2.7 =
+Date: 9th July 2016
+* Added HTML Paragraph Tag to 'wp_kses' for Footer.
+
+= 0.2.6 =
+Date: 9th July 2016
+* Added Page Template with Left Sidebar.
+* Fixed Link CSS Error in Light Color Scheme.
+
+= 0.2.5 =
+Date: 4th July 2016
+* Further updates to Light Color Scheme CSS.
+* Added new Screenshot PNG file.
+* Added Template for Narrow Content, No Sidebar.
+* [PRO] Added Easy Digital Downloads Customisations.
+* [PRO] Added New Social Icons.
+
+= 0.2.4 =
+Date: 1st July 2016
+* Fixed issues raised by Theme Check Plug-in
+
+= 0.2.3 =
+Date: 26th June 2016
+* Added FontAwesome files into theme.
+* Updated Customizer Sanitize Functions.
+* Added Fixes for Theme Checker Results.
+* Improved Customizer Live Preview Functionality.
+* Updated the Light Color Scheme CSS.
+
+= 0.2.2 =
+Date: 15th June 2016
+* Changed Google Fonts.
+* Improved Image size settings.
+
+= 0.2.1 =
+Date: 15th June 2016
+* Updated Gulp File in Framework.
+
+= 0.2.0 =
+Date: 14th June 2016
+* Added Color Scheme Settings to WP Customizer.
+* Tidy up of Custom CSS.
+
+= 0.1.8 =
+Date: 9th June 2016
+* Added WordPress Theme Customizer 'Live' Preview.
+* Changed Home Page Parallax Sections to use Widgets.
+* Tidied up CSS Files.
+* Tidied up Framework Files.
+
+= 0.1.7 =
+Date: 18th May 2016
+* Updated the Gulp File.
+* Updated CSS for Font Sizes.
+
+= 0.1.6 =
+Date: 15th May 2016
+* Corrected Navigation and Footer CSS Settings.
+
+= 0.1.5 =
+Date: 14th May 2016
+* Corrected Navigation CSS Settings.
+
+= 0.1.4 =
+Date: 14th May 2016
+* Fixed Accordion Nested Mobile Navigation.
+* Updated Navigation CSS.
+
+= 0.1.3 =
+Date: 1st May 2016
+* Updated style.css version number inline with README.txt.
+
+= 0.1.2 =
+Date: 1st May 2016
+* Fixed issues with Navigation.
+
+= 0.1.1 =
+Date: 30th April 2016
+* Corrected some Media Queries to improve Mobile Menus.
+
+= 0.1.0 =
+Date: 29th April 2016
+* First Functionally Stable Version.
