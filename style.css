@@ -5,7 +5,7 @@ Theme URI: https://designedforpixels.com/downloads/designed4pixels-wordpress-the
 Author: Designed for Pixels (Gary Jordan)
 Author URI: https://designedforpixels.com
 Description: Designed4Pixels is an ideal theme for any content based website. It includes some powerful features for sites offering courses, tutorials, and other digital content to their visitors. Built-in integration with both Easy Digital Downloads and Woocommerce make this a powerful WordPress theme.
-Version: 0.7.0
+Version: 0.7.2
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: left-sidebar, right-sidebar, one-column, two-columns, custom-colors, featured-images, threaded-comments, footer-widgets, custom-menu, theme-options, portfolio, e-commerce, translation-ready
@@ -497,7 +497,7 @@ button.menu-icon, button.menu-icon:hover, button.menu-icon:focus {
 /* # 5.0 Post & Content Styles 
 ------------------------------------------------------ */
 #content #inner-content {
-  padding: 6rem 0rem 4rem 0rem;
+  padding: 7rem 0rem 4rem 0rem;
   background-color: #fefefe; }
   #content #inner-content #main {
     padding: 1rem 1rem 1rem;
@@ -619,36 +619,12 @@ table {
 
 @media screen and (max-width: 64em) {
   #content #inner-content {
-    padding: 5.0rem 0rem 1.5rem 0rem; }
+    padding: 6.0rem 0rem 1.5rem 0rem; }
     #content #inner-content #main {
       padding: 1rem 1rem 1rem; } }
 
 /* # 6.0 Off-Canvas Content Styles 
 ------------------------------------------------------ */
-.position-left {
-  width: 350px;
-  transform: translateX(-350px);
-  -webkit-transform: translateX(-350px); }
-
-.position-right {
-  width: 350px;
-  transform: translateX(350px);
-  -webkit-transform: translateX(350px); }
-
-​#off-canvas-top-wrapper .off-canvas.position-top {
-  height: 400px;
-  transform: translateY(-400px); }
-
-#off-canvas-top-wrapper .off-canvas.position-top.is-open ~ .off-canvas-content {
-  transform: translateY(400); }
-
-.position-bottom {
-  height: 400px;
-  transform: translateY(400px); }
-
-.position-bottom.is-open ~ .off-canvas-content {
-  transform: translateY(-400px); }
-
 .off-canvas-inner {
   margin: 9rem 0 0; }
   .off-canvas-inner .widget {
@@ -656,10 +632,10 @@ table {
     padding: 0; }
 
 .off-canvas.is-transition-overlap.is-open {
-  box-shadow: 0 0 10px rgba(10, 10, 10, 0.7); }
+  box-shadow: 0 0 12px rgba(10, 10, 10, 0.1); }
 
 .close-button, .close-button.medium {
-  top: 5.5rem;
+  top: 6.0rem;
   right: -0.5rem;
   border: none !important; }
 
@@ -675,7 +651,8 @@ table {
 
 #off-canvas-left button.close-button,
 #off-canvas-right button.close-button {
-  background-color: transparent; }
+  background-color: transparent;
+  font-size: 1em; }
 
 /* # 7.0 Gallery Image Styles 
 ------------------------------------------------------ */
@@ -1058,7 +1035,10 @@ button, input[type="button"], input[type="reset"], input[type="submit"], .button
     padding: 0px 10px; }
   .image-feature h1 {
     color: #666;
-    margin-bottom: 0.5rem; }
+    margin-bottom: 0.5rem;
+    font-size: 1.8rem; }
+  .image-feature p {
+    font-size: 1.4rem; }
 
 .image-mask {
   width: 100%;
@@ -1132,7 +1112,7 @@ button, input[type="button"], input[type="reset"], input[type="submit"], .button
   border-top: solid 5px #f1f1f1;
   padding: 3.5rem 1.0rem 3.0rem; }
   .cta-feature h1, .cta-feature h2 {
-    color: #fefefe; }
+    color: #666; }
   .cta-feature h3 {
     color: #999; }
   .cta-feature ul > li {
@@ -1165,9 +1145,8 @@ button, input[type="button"], input[type="reset"], input[type="submit"], .button
     padding: 2.5rem 1.0rem 2.5rem;
     height: 100%; }
 
-.parallax-inner-feature .image-mask {
-  background-color: transparent;
-  min-height: 0; }
+div[id^="parallax-inner-feature-"] .image-mask {
+  background-color: rgba(255, 255, 255, 0); }
 
 .parallax-content {
   color: #777;
@@ -1834,6 +1813,9 @@ body.dark-color-scheme {
 .dark-color-scheme .parallax-feature .image-mask, .dark-color-scheme .parallax-custom .image-mask {
   background-color: rgba(0, 0, 0, 0.8); }
 
+.dark-color-scheme [id^="parallax-inner-feature-"] .image-mask {
+  background-color: transparent; }
+
 .dark-color-scheme .parallax-feature {
   border-top: 5px solid #0a0a0a; }
 
@@ -1853,7 +1835,7 @@ body.dark-color-scheme {
   color: #fff; }
 
 .dark-color-scheme .image-feature .narrow-container {
-  color: #666; }
+  color: #bbb; }
 
 .dark-color-scheme .image-feature .image-mask {
   background-color: rgba(0, 0, 0, 0.6); }
@@ -1900,12 +1882,13 @@ body.dark-color-scheme {
   background-color: #111; }
 
 .dark-color-scheme .content-feature {
-  background-color: #f3f4f5; }
+  background-color: #f3f4f5;
+  border-top: solid 5px #d8d8d8; }
 
 .dark-color-scheme .cta-feature {
   color: #eee;
   background-color: #779ECB;
-  border-top: solid 5px #f1f1f1; }
+  border-top: solid 5px #5284bd; }
 
 .dark-color-scheme .cta-feature h1 {
   color: #fefefe; }
@@ -1914,7 +1897,7 @@ body.dark-color-scheme {
   color: #999; }
 
 .dark-color-scheme .cta-feature hr {
-  border: solid 1px #e5e5e5; }
+  border: solid 1px #5284bd; }
 
 .dark-color-scheme .mc4wp-form-fields input[type="text"],
 .dark-color-scheme .mc4wp-form-fields input[type="email"],
