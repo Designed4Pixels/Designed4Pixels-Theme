@@ -28,7 +28,7 @@
 
     <!-- Close button -->
     <button class="close-button" aria-label="Close menu" type="button" data-close>
-         <span aria-hidden="true">&times;</span>
+         <span aria-hidden="true">[close]</span>
     </button>
 
     <div class="off-canvas-inner">
@@ -52,7 +52,7 @@
 
     <!-- Close button -->
     <button class="close-button" aria-label="Close menu" type="button" data-close>
-         <span aria-hidden="true">&times;</span>
+         <span aria-hidden="true">[close]</span>
     </button>
 
     <div class="off-canvas-inner">
@@ -75,7 +75,7 @@
 
     <!-- Close button -->
     <button class="close-button" aria-label="Close menu" type="button" data-close>
-         <span aria-hidden="true">&times;</span>
+         <span aria-hidden="true">[close]</span>
     </button>
 
     <div class="off-canvas-inner">
