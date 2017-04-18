@@ -1,5 +1,14 @@
 CHANGELOG
 
+= 0.7.2 =
+Date: 17th April 2017
+* Fixed various dark color scheme settings.
+
+= 0.7.1 =
+Date: 17th April 2017
+* Upgraded to Foundation 6.3.1.
+* Fixed parallax feature color mask in dark color scheme.
+
 = 0.7.0 =
 Date: 15th April 2017
 * Added Widgets for Home Page Featured Sections.
