@@ -1082,8 +1082,9 @@ button, input[type="button"], input[type="reset"], input[type="submit"], .button
   background-color: #fefefe;
   padding: 3.5rem 1.0rem 3.0rem;
   border-top: solid 5px #f4f4f4; }
-  .content-feature h1 {
+  .content-feature h1, .content-feature h2 {
     line-height: 1.6;
+    margin-bottom: 0.5rem;
     color: #444; }
   .content-feature p:first-child {
     margin-top: 0; }
@@ -1119,7 +1120,8 @@ button, input[type="button"], input[type="reset"], input[type="submit"], .button
     list-style: circle inside none;
     padding-left: 3px; }
   .cta-feature hr {
-    border: solid #e5e5e5;
+    border-color: #e5e5e5;
+    border-style: solid;
     border-width: 1px 0 0;
     clear: both;
     margin: 1.0rem auto 2.0rem;
@@ -1416,6 +1418,15 @@ This stylesheet is used to set-up the Designed4Pixels Accent Color & Color Schem
 .color-one blockquote {
   border-left: 2px solid #779ecb; }
 
+.color-one .cta-feature {
+  background-color: #aec5e0;
+  border-top: solid 5px #779ecb; }
+
+.color-one .cta-feature hr {
+  border-color: #779ecb;
+  border-style: solid;
+  border-width: 1px 0 0; }
+
 @media screen and (max-width: 64em) {
   .color-one .title-bar button, .color-one .title-bar button:hover {
     border: none; }
@@ -1465,6 +1476,15 @@ This stylesheet is used to set-up the Designed4Pixels Accent Color & Color Schem
 
 .color-two blockquote {
   border-left: 2px solid #428bca; }
+
+.color-two .cta-feature {
+  background-color: #7eb0db;
+  border-top: solid 5px #428bca; }
+
+.color-two .cta-feature hr {
+  border-color: #428bca;
+  border-style: solid;
+  border-width: 1px 0 0; }
 
 @media screen and (max-width: 64em) {
   .color-two .title-bar button, .color-two .title-bar button:hover {
@@ -1516,6 +1536,15 @@ This stylesheet is used to set-up the Designed4Pixels Accent Color & Color Schem
 .color-three blockquote {
   border-left: 2px solid #dd5454; }
 
+.color-three .cta-feature {
+  background-color: #ea9494;
+  border-top: solid 5px #dd5454; }
+
+.color-three .cta-feature hr {
+  border-color: #dd5454;
+  border-style: solid;
+  border-width: 1px 0 0; }
+
 @media screen and (max-width: 64em) {
   .color-three .title-bar button, .color-three .title-bar button:hover {
     border: none; }
@@ -1565,6 +1594,15 @@ This stylesheet is used to set-up the Designed4Pixels Accent Color & Color Schem
 
 .color-four blockquote {
   border-left: 2px solid #59a364; }
+
+.color-four .cta-feature {
+  background-color: #8abf92;
+  border-top: solid 5px #59a364; }
+
+.color-four .cta-feature hr {
+  border-color: #59a364;
+  border-style: solid;
+  border-width: 1px 0 0; }
 
 @media screen and (max-width: 64em) {
   .color-four .title-bar button, .color-four .title-bar button:hover {
@@ -1616,6 +1654,15 @@ This stylesheet is used to set-up the Designed4Pixels Accent Color & Color Schem
 .color-five blockquote {
   border-left: 2px solid #9d58e2; }
 
+.color-five .cta-feature {
+  background-color: #c399ed;
+  border-top: solid 5px #9d58e2; }
+
+.color-five .cta-feature hr {
+  border-color: #9d58e2;
+  border-style: solid;
+  border-width: 1px 0 0; }
+
 @media screen and (max-width: 64em) {
   .color-five .title-bar button, .color-five .title-bar button:hover {
     border: none; }
@@ -1648,13 +1695,13 @@ This stylesheet is used to set-up the Designed4Pixels Accent Color & Color Schem
   color: #928661; }
 
 .color-six .info-bar a:hover {
-  color: #746a4c; }
+  color: #736a4d; }
 
 .color-six a {
   color: #928661; }
 
 .color-six a:hover {
-  color: #746a4c; }
+  color: #736a4d; }
 
 .color-six input::-moz-placeholder, .color-six textarea::-moz-placeholder {
   border: 1px solid #928661;
@@ -1665,6 +1712,15 @@ This stylesheet is used to set-up the Designed4Pixels Accent Color & Color Schem
 
 .color-six blockquote {
   border-left: 2px solid #928661; }
+
+.color-six .cta-feature {
+  background-color: #b3aa8d;
+  border-top: solid 5px #928661; }
+
+.color-six .cta-feature hr {
+  border-color: #928661;
+  border-style: solid;
+  border-width: 1px 0 0; }
 
 @media screen and (max-width: 64em) {
   .color-six .title-bar button, .color-six .title-bar button:hover {
@@ -1886,18 +1942,13 @@ body.dark-color-scheme {
   border-top: solid 5px #d8d8d8; }
 
 .dark-color-scheme .cta-feature {
-  color: #eee;
-  background-color: #779ECB;
-  border-top: solid 5px #5284bd; }
+  color: #eee; }
 
 .dark-color-scheme .cta-feature h1 {
   color: #fefefe; }
 
 .dark-color-scheme .cta-feature h2 {
   color: #999; }
-
-.dark-color-scheme .cta-feature hr {
-  border: solid 1px #5284bd; }
 
 .dark-color-scheme .mc4wp-form-fields input[type="text"],
 .dark-color-scheme .mc4wp-form-fields input[type="email"],
