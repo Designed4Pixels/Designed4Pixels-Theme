@@ -110,11 +110,14 @@ function d4p_create_accent_color_css() {
 
     require_once( get_parent_theme_file_path( '/inc/accent-color-css.php' ) );
     $accent_color = get_theme_mod( 'd4p_custom_accent_color' );
-?>
-    <style type="text/css" id="custom-accent-color" <?php if ( is_customize_preview() ) { echo 'data-accent-color="' . $accent_color . '"'; } ?>>
+    $accent_color_light = hex2rgba( $accent_color, 0.5 ); 
+
+	?>
+    <style type="text/css" id="custom-accent-color" <?php if ( is_customize_preview() ) { echo 'data-accent-color="' . $accent_color . '" data-accent-color-light="' . $accent_color_light . '"'; } ?>>
         <?php echo d4p_accent_color_css(); ?>
     </style>
-<?php }
+	<?php
+}
 add_action( 'wp_head', 'd4p_create_accent_color_css' );
 
 
@@ -338,44 +341,60 @@ function d4p_front_page_widgets() {
 		<?php
 
 		//* Home Page: Home Feature Section 1
-		if ( is_active_sidebar( 'home-feature-section-1' ) ) {
-			dynamic_sidebar( 'home-feature-section-1' );
-		}
+		if ( is_active_sidebar( 'home-feature-section-1' ) ) { ?> 
+			<div id="home-feature-section-1">
+			 	<?php dynamic_sidebar( 'home-feature-section-1' ); ?>
+			</div>
+		<?php }
 
 		//* Home Page: Home Feature Section 2
-		if ( is_active_sidebar( 'home-feature-section-2' ) ) {
-			dynamic_sidebar( 'home-feature-section-2' );
-		}
+		if ( is_active_sidebar( 'home-feature-section-2' ) ) { ?> 
+			<div id="home-feature-section-2">
+			 	<?php dynamic_sidebar( 'home-feature-section-2' ); ?>
+			</div>
+		<?php }
 
 		//* Home Page: Home Feature Section 3
-		if ( is_active_sidebar( 'home-feature-section-3' ) ) {
-			dynamic_sidebar( 'home-feature-section-3' );
-		}
+		if ( is_active_sidebar( 'home-feature-section-3' ) ) { ?> 
+			<div id="home-feature-section-3">
+			 	<?php dynamic_sidebar( 'home-feature-section-3' ); ?>
+			</div>
+		<?php }
 
 		//* Home Page: Home Feature Section 4
-		if ( is_active_sidebar( 'home-feature-section-4' ) ) {
-			dynamic_sidebar( 'home-feature-section-4' );
-		}
+		if ( is_active_sidebar( 'home-feature-section-4' ) ) { ?> 
+			<div id="home-feature-section-4">
+			 	<?php dynamic_sidebar( 'home-feature-section-4' ); ?>
+			</div>
+		<?php }
 
 		//* Home Page: Home Feature Section 5
-		if ( is_active_sidebar( 'home-feature-section-5' ) ) {
-			dynamic_sidebar( 'home-feature-section-5' );
-		}
+		if ( is_active_sidebar( 'home-feature-section-5' ) ) { ?> 
+			<div id="home-feature-section-5">
+			 	<?php dynamic_sidebar( 'home-feature-section-5' ); ?>
+			</div>
+		<?php }
 
 		//* Home Page: Home Feature Section 6
-		if ( is_active_sidebar( 'home-feature-section-6' ) ) {
-			dynamic_sidebar( 'home-feature-section-6' );
-		}
+		if ( is_active_sidebar( 'home-feature-section-6' ) ) { ?> 
+			<div id="home-feature-section-6">
+			 	<?php dynamic_sidebar( 'home-feature-section-6' ); ?>
+			</div>
+		<?php }
 
 		//* Home Page: Home Feature Section 7
-		if ( is_active_sidebar( 'home-feature-section-7' ) ) {
-			dynamic_sidebar( 'home-feature-section-7' );
-		}
+		if ( is_active_sidebar( 'home-feature-section-7' ) ) { ?> 
+			<div id="home-feature-section-7">
+			 	<?php dynamic_sidebar( 'home-feature-section-7' ); ?>
+			</div>
+		<?php }
 
 		//* Home Page: Home Feature Section 8
-		if ( is_active_sidebar( 'home-feature-section-8' ) ) {
-			dynamic_sidebar( 'home-feature-section-8' );
-		}
+		if ( is_active_sidebar( 'home-feature-section-8' ) ) { ?> 
+			<div id="home-feature-section-8">
+			 	<?php dynamic_sidebar( 'home-feature-section-8' ); ?>
+			</div>
+		<?php }
 		
 		?>
 			
@@ -386,7 +405,45 @@ function d4p_front_page_widgets() {
 add_action( 'd4p_front_page', 'd4p_front_page_widgets' );
 
 
-
+/* Convert hexdec color string to rgb(a) string */
+ 
+function hex2rgba( $color, $opacity = false ) {
+ 
+	$default = 'rgb(0,0,0)';
+ 
+	//Return default if no color provided
+	if(empty($color))
+          return $default; 
+ 
+	//Sanitize $color if "#" is provided 
+        if ($color[0] == '#' ) {
+        	$color = substr( $color, 1 );
+        }
+ 
+        //Check if color has 6 or 3 characters and get values
+        if (strlen($color) == 6) {
+                $hex = array( $color[0] . $color[1], $color[2] . $color[3], $color[4] . $color[5] );
+        } elseif ( strlen( $color ) == 3 ) {
+                $hex = array( $color[0] . $color[0], $color[1] . $color[1], $color[2] . $color[2] );
+        } else {
+                return $default;
+        }
+ 
+        //Convert hexadec to rgb
+        $rgb =  array_map('hexdec', $hex);
+ 
+        //Check if opacity is set(rgba or rgb)
+        if($opacity){
+        	if(abs($opacity) > 1)
+        		$opacity = 1.0;
+        	$output = 'rgba('.implode(",",$rgb).','.$opacity.')';
+        } else {
+        	$output = 'rgb('.implode(",",$rgb).')';
+        }
+ 
+        //Return rgb(a) color string
+        return $output;
+}
 
 /***************************************************************************/
 /* DO NOT REMOVE - Automatic Theme Updater (via the EDD Updates Extension) */
