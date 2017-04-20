@@ -1,5 +1,10 @@
 CHANGELOG
 
+= 0.7.3 =
+Date: 20th April 2017
+* Updated to Accent Color Scheme.
+* Fix to Home Section Widget Areas.
+
 = 0.7.2 =
 Date: 17th April 2017
 * Fixed various dark color scheme settings.
