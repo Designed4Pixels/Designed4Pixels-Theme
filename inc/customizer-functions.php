@@ -36,6 +36,10 @@
     return ( is_active_widget( false, false, 'designed4pixels_content_feature', true ) && is_front_page() );
   }
 
+  function d4p_show_posts_feature_on_home_page() {
+    return ( is_active_widget( false, false, 'designed4pixels_show_posts_feature', true ) && is_front_page() );
+  }
+
   function d4p_general_colors() {
     return ( 'custom' == get_theme_mod( 'd4p_color_scheme' ));
   }

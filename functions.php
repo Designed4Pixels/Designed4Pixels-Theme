@@ -445,6 +445,7 @@ function hex2rgba( $color, $opacity = false ) {
         return $output;
 }
 
+
 /***************************************************************************/
 /* DO NOT REMOVE - Automatic Theme Updater (via the EDD Updates Extension) */
 

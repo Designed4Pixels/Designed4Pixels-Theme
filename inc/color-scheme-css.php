@@ -693,6 +693,50 @@ CSS;
 
 }}
 
+
+$show_posts_feature_colors = (array) get_theme_mod( 'd4p_show_posts_feature_widget_settings');
+
+foreach ( $show_posts_feature_colors as $key => $value) {
+
+/* Set-up the content feature data */
+
+if ( is_array($show_posts_feature_colors[ $key ])) { 
+
+$color_1 = $colors[ 'd4p_show_posts_feature_background_' . $key ];
+$color_2 = $colors[ 'd4p_show_posts_header_color_' . $key ];
+$color_3 = $colors[ 'd4p_show_posts_card_border_color_' . $key ];
+$color_4 = $colors[ 'd4p_show_posts_card_background_color_' . $key ];
+$color_5 = $colors[ 'd4p_show_posts_card_header_color_' . $key ];
+$color_6 = $colors[ 'd4p_show_posts_card_text_color_' . $key ];
+
+$feature_colors .= <<<CSS
+
+    .custom-color-scheme #show-posts-feature-{$value['name']} .show-posts-feature {
+          background-color: {$color_1};
+    }
+
+    .custom-color-scheme #show-posts-feature-{$value['name']} .show-posts-feature .archive-header > h2 {
+          color: {$color_2};
+    }
+
+    .custom-color-scheme #show-posts-feature-{$value['name']} .show-posts-feature .card {
+          border: 1px solid {$color_3};
+          background: {$color_4};
+    }
+
+    .custom-color-scheme #show-posts-feature-{$value['name']} .show-posts-feature .card-section .title a {
+          color: {$color_5};
+    }
+
+    .custom-color-scheme #show-posts-feature-{$value['name']} .show-posts-feature .card-section .entry-content {
+          color: {$color_6};
+    }
+
+CSS;
+
+}}
+
+
   /**
    * Filters Designed4Pixels Color Settings Array.
    *

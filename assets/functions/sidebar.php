@@ -127,8 +127,8 @@ function d4p_register_sidebars() {
 		'description' => __( 'This is the Fifth Home Page Feature Section.', 'designed4pixels' ),
 		'before_widget' => '',
 		'after_widget' => '',
-		'before_title' => '',
-		'after_title' => '',
+		'before_title' => '<h2>',
+		'after_title' => '</h2>',
 	));
 
 	register_sidebar( array(

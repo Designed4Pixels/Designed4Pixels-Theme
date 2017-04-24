@@ -21,6 +21,7 @@ require_once( get_template_directory() . '/inc/home-section-config-files/config-
 require_once( get_template_directory() . '/inc/home-section-config-files/config-content.php' );
 require_once( get_template_directory() . '/inc/home-section-config-files/config-call-to-action.php' );
 require_once( get_template_directory() . '/inc/home-section-config-files/config-parallax.php' );
+require_once( get_template_directory() . '/inc/home-section-config-files/config-show-posts.php' );
 
 
 // Theme Customizer Color Scheme CSS Settings
@@ -54,6 +55,9 @@ function d4p_register ( $wp_customize ) {
 
     //* Theme Customizer Call-to-Action Settings
 	require_once( get_template_directory() . '/inc/customizer-cta-feature.php' );
+
+    //* Theme Customizer Show Posts Settings
+	require_once( get_template_directory() . '/inc/customizer-show-posts.php' );
 
     //* Theme Customizer Footer Settings
 	require_once( get_template_directory() . '/inc/customizer-footer.php' );
