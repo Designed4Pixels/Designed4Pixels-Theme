@@ -62,7 +62,7 @@ class Designed4Pixels_Image_Feature extends WP_Widget {
 				<div id="<?php echo 'image-feature-' . $page->post_name ?>">
 					<div class="image-feature" >
 			<?php } ?>
-						<div class="image-mask">
+						<div class="image-mask" style="height: 430px;">
 							<div class="narrow-container text-center">
 								<?php if( $page ) {
             						echo apply_filters('the_content', $page->post_content);

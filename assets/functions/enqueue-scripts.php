@@ -38,6 +38,12 @@ function site_scripts() {
     if ( is_singular() AND comments_open() AND (get_option('thread_comments') == 1)) {
       wp_enqueue_script( 'comment-reply' );
     }
+
+    $init_settings = array(
+        'show_admin_bar' => ( is_admin_bar_showing() ),
+    );
+
+    wp_localize_script( 'custom-js', 'init_settings', $init_settings );
 }
 add_action('wp_enqueue_scripts', 'site_scripts', 999);
 

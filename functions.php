@@ -147,6 +147,7 @@ add_action( 'wp_head', 'd4p_create_color_scheme_css' );
 //* Add Support for Post Thumbnails on Posts and Pages.
 add_theme_support( 'post-thumbnails' );
 add_image_size( 'side-bar', 335, 200, true );      						// Side Bar Images
+add_image_size( 'show-posts', 370, 278, array( 'left', 'top' ) );      	// Show Posts Images
 add_image_size( 'post-index', 768, 350, array( 'left', 'top' ) );   	// Blog Page Images
 add_image_size( 'single-post', 768, 350, array( 'left', 'top' ) );   	// Single Page & Post Images
 add_image_size( 'row-width', 970, 550, array( 'center', 'top' ) );     	// Row Width
