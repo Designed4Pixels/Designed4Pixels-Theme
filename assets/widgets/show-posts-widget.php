@@ -57,9 +57,17 @@ class Designed4Pixels_Show_Posts_Feature extends WP_Widget {
  		* @return int (Maybe) modified excerpt length.
  		*/
 		function wpdocs_custom_excerpt_length( $length ) {
-    		return 20;
+    		return 15;
 		}
 		add_filter( 'excerpt_length', 'wpdocs_custom_excerpt_length', 999 );
+
+
+		// Replaces the excerpt "Read More" text by a link
+		function new_excerpt_more( $more ) {
+       		global $post;
+			return '&hellip; <a class="excerpt-read-more" href="'. get_permalink($post->ID) . '"> Read more &raquo;</a>';
+		}
+		add_filter('excerpt_more', 'new_excerpt_more');
 
 		$post_args = array(
 			'category_name' => $instance['name'],
@@ -70,7 +78,7 @@ class Designed4Pixels_Show_Posts_Feature extends WP_Widget {
 
 				<div id="show-posts-feature-<?php echo $instance['name'] ?>">
 					<div class="show-posts-feature">
-						<div class="row">	<?php		
+						<div class="row" data-equalizer data-equalize-on="medium">	<?php		
 								
 		if($related_posts) {
 
@@ -80,13 +88,13 @@ class Designed4Pixels_Show_Posts_Feature extends WP_Widget {
 			
 			foreach ( $related_posts as $post ) : setup_postdata( $post ); ?>
 
-				<div class="large-4 medium-4 columns" data-equalizer-watch>
-					<div class="card">
+				<div class="large-4 medium-4 columns">
+					<div class="card" data-equalizer-watch >
 		
 						<article id="post-<?php the_ID(); ?>" <?php post_class(''); ?> role="article">
 			
-							<section class="featured-image" itemprop="articleBody">
-								<a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_post_thumbnail('full'); ?></a>
+							<section class="featured-image" itemprop="articleBody" >
+								<a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_post_thumbnail('show-posts'); ?></a>
 							</section> <!-- end article section -->
 			
 							<div class="card-section">
@@ -99,6 +107,7 @@ class Designed4Pixels_Show_Posts_Feature extends WP_Widget {
 								<section class="entry-content" itemprop="articleBody">
 									<?php the_excerpt(); ?> 
 								</section> <!-- end article section -->
+
 							</div>
 								    							
 						</article> <!-- end article -->
@@ -149,7 +158,7 @@ class Designed4Pixels_Show_Posts_Feature extends WP_Widget {
 	 */
 	public function form( $instance ) {
 
-		$title = ! empty( $instance['title'] ) ? $instance['title'] : esc_html__( 'New title', 'designed' );
+		$title = ! empty( $instance['title'] ) ? $instance['title'] : esc_html__( '', 'designed4pixels' );
 		?>
 		<p>
 		<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_attr_e( 'Title:', 'designed4pixels' ); ?></label> 

@@ -47,6 +47,23 @@ foreach ( $widget_settings as $number => $value ) {
 		)));
 
 
+		/* ----- Set-up Archive Border Color ----- */
+
+		$wp_customize->add_setting( 'd4p_show_posts_feature_border_color_' . $number,
+			array(
+				'default' => $color_settings[ 'd4p_show_posts_feature_border_color_' . $number ],
+    			'transport'   => 'postMessage',
+    			'sanitize_callback' => 'd4p_sanitize_hex_color',
+		));
+
+
+		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'd4p_show_posts_feature_border_color_' . $number,
+			array(
+				'label'        => __( 'Show Posts Border Color ('. $version . ')', 'designed4pixels' ),
+				'section'    => 'd4p_show_posts_feature_colors_' . $number,
+		)));
+
+
 		/* ----- Set-up Archive Heading Color ----- */
 
 		$wp_customize->add_setting( 'd4p_show_posts_header_color_' . $number,
