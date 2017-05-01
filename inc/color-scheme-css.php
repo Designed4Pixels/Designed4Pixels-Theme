@@ -138,7 +138,6 @@ body.custom-color-scheme {
 
 .custom-color-scheme .logo-bar {
     background-color: {$colors['d4p_logobar_background']};
-    border-top: solid 1px {$colors['d4p_logobar_border_color']};
     /* box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.2); */
 }
 
@@ -703,33 +702,36 @@ foreach ( $show_posts_feature_colors as $key => $value) {
 if ( is_array($show_posts_feature_colors[ $key ])) { 
 
 $color_1 = $colors[ 'd4p_show_posts_feature_background_' . $key ];
-$color_2 = $colors[ 'd4p_show_posts_header_color_' . $key ];
-$color_3 = $colors[ 'd4p_show_posts_card_border_color_' . $key ];
-$color_4 = $colors[ 'd4p_show_posts_card_background_color_' . $key ];
-$color_5 = $colors[ 'd4p_show_posts_card_header_color_' . $key ];
-$color_6 = $colors[ 'd4p_show_posts_card_text_color_' . $key ];
+$color_2 = $colors[ 'd4p_show_posts_feature_border_color_' . $key ];
+$color_3 = $colors[ 'd4p_show_posts_header_color_' . $key ];
+$color_4 = $colors[ 'd4p_show_posts_card_border_color_' . $key ];
+$color_5 = $colors[ 'd4p_show_posts_card_background_color_' . $key ];
+$color_6 = $colors[ 'd4p_show_posts_card_header_color_' . $key ];
+$color_7 = $colors[ 'd4p_show_posts_card_text_color_' . $key ];
 
 $feature_colors .= <<<CSS
 
     .custom-color-scheme #show-posts-feature-{$value['name']} .show-posts-feature {
           background-color: {$color_1};
+          border-top: 5px solid {$color_2};
+          border-bottom:  5px solid {$color_2};
     }
 
     .custom-color-scheme #show-posts-feature-{$value['name']} .show-posts-feature .archive-header > h2 {
-          color: {$color_2};
+          color: {$color_3};
     }
 
     .custom-color-scheme #show-posts-feature-{$value['name']} .show-posts-feature .card {
-          border: 1px solid {$color_3};
-          background: {$color_4};
+          border: 1px solid {$color_4};
+          background: {$color_5};
     }
 
     .custom-color-scheme #show-posts-feature-{$value['name']} .show-posts-feature .card-section .title a {
-          color: {$color_5};
+          color: {$color_6};
     }
 
     .custom-color-scheme #show-posts-feature-{$value['name']} .show-posts-feature .card-section .entry-content {
-          color: {$color_6};
+          color: {$color_7};
     }
 
 CSS;

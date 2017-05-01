@@ -65,7 +65,7 @@ class Designed4Pixels_Parallax_Feature extends WP_Widget {
     		update_option( 'd4p_parallax_features', $d4p_parallax_images );?>
 
 			<div id="parallax-feature-<?php echo $instance['page_name'] ?>">
-				<div class="parallax-feature" style="background-attachment: fixed; background-image: url(<?php echo $instance['parallax_image'] ?>)">
+				<div class="parallax-feature" style="background-image: url(<?php echo $instance['parallax_image'] ?>)">
 		<?php } else { ?>
 				<div id="parallax-feature-<?php echo $instance['page_name'] ?>">
 					<div class="parallax-feature" >

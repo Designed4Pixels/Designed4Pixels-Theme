@@ -64,7 +64,14 @@ class Designed4Pixels_Call_to_Action_Feature extends WP_Widget {
 					</div>
 
 					<div class="large-6 columns">
-       					<p><?php echo $instance['cta_right_text'] ?></p>
+       					<?php
+       					if( has_shortcode( $instance['cta_right_text'], 'mc4wp_form' ) ) {
+       						echo do_shortcode( $instance['cta_right_text'] );
+       					} else {
+       							echo $instance['cta_right_text'];
+       					}
+       					  
+       					?>
 					</div>
 
         		</div>
