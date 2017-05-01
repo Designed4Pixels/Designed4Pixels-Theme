@@ -1,5 +1,14 @@
 CHANGELOG
 
+= 0.7.7 =
+Date: 1st May 2017
+* Improvements to 'Off Canvas' and 'Home Image Feature' auto height adjustments.
+* Further improvements to 'Custom Color' Scheme Settings.
+
+= 0.7.6 =
+Date: 27th April 2017
+* Minor improvements and tidying of the 'Show Posts' Feature.
+
 = 0.7.4 =
 Date: 24th April 2017
 * Added New 'Show Posts' Home Page Featured Section.
