@@ -165,7 +165,7 @@
 
 		$wp_customize->add_setting( 'd4p_infobar_icon_background_color',
 			array(
-				'default' => '#c6c6c6',
+				'default' => '#e0e0e0',
     			'transport'   => 'postMessage',
     			'sanitize_callback' => 'd4p_sanitize_hex_color',
 		));
