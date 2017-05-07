@@ -1,5 +1,16 @@
 CHANGELOG
 
+= 0.7.9 =
+Date: 7th May 2017
+* Updated WooCommerce Templates 7 CSS inline with version 3.0.5.
+
+= 0.7.8 =
+Date: 4th May 2017
+* Corrected problem with Custom Archive Grid layout with Multisite.
+* Corrected problem with Custom Meta Boxes on wrong pages.
+* Corrected problem with Archive Grid being different heights.
+* General tidy-up of Custom Archive Page spacing on mobile devices.
+
 = 0.7.7 =
 Date: 1st May 2017
 * Improvements to 'Off Canvas' and 'Home Image Feature' auto height adjustments.
