@@ -17,7 +17,7 @@ function d4p_color_default_settings() {
       'd4p_infobar_background'                  => '#fefefe',
       'd4p_infobar_border_color'                => '#f1f1f1',
       'd4p_infobar_text_color'                  => '#c6c6c6',
-      'd4p_infobar_icon_background_color'       => '#c6c6c6',
+      'd4p_infobar_icon_background_color'       => '#e0e0e0',
       'd4p_infobar_icon_text_color'             => '#fefefe',
       'd4p_logobar_background'                  => '#fefefe', 
       'd4p_logobar_border_color'                => '#f1f1f1',

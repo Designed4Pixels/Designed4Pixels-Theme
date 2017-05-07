@@ -57,6 +57,16 @@ if ( is_multisite() ) {
 }
 
 
+function d4p_archive_title( $title ) {
+
+	if ( is_post_type_archive() ) {
+        $title = post_type_archive_title( '', false );
+    } 
+    return $title;
+}
+add_filter( 'get_the_archive_title', 'd4p_archive_title', 10, 1 );
+
+
 //* Set-up the Default Content Width
 if ( !isset( $content_width ) ) $content_width = 1200;
 
@@ -147,13 +157,12 @@ add_action( 'wp_head', 'd4p_create_color_scheme_css' );
 //* Add Support for Post Thumbnails on Posts and Pages.
 add_theme_support( 'post-thumbnails' );
 add_image_size( 'side-bar', 335, 200, true );      						// Side Bar Images
-add_image_size( 'show-posts', 370, 278, array( 'left', 'top' ) );      	// Show Posts Images
+add_image_size( 'show-posts', 370, 250, array( 'left', 'top' ) );      	// Show Posts Images
 add_image_size( 'post-index', 768, 350, array( 'left', 'top' ) );   	// Blog Page Images
 add_image_size( 'single-post', 768, 350, array( 'left', 'top' ) );   	// Single Page & Post Images
 add_image_size( 'row-width', 970, 550, array( 'center', 'top' ) );     	// Row Width
 add_image_size( 'full-content', 1200, 800, array( 'left', 'top' ) );    // Full Content Width
 add_image_size( 'full-width', 1600, 800, true );   						// Full Size (Parallax, etc)
-add_image_size( 'orbit-custom', 1600, 800, true );   					// WP-Orbit Slider
 add_image_size( 'designed4pixels-featured-image', 2000, 1200, true );	// Home Page Featured Image
 
 

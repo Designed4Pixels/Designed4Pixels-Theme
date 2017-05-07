@@ -69,6 +69,11 @@ function d4p_accent_color_css() {
     border-width: 1px 0 0;
 }
 
+.dark-color-scheme .woocommerce div.product p.price,
+.dark-color-scheme .woocommerce div.product span.price {
+    color: ' . $accent_color . ';
+}
+
 @media screen and (max-width: 64em) {
 
   .custom-color .title-bar button, .color-one .title-bar button:hover {
