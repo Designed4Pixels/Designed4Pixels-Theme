@@ -9,8 +9,8 @@ $grid_columns = 4; ?>
 <?php endif; ?> 
 
 		<!--Item: -->
-		<div class="large-3 medium-3 columns" data-equalizer-watch>
-			<div class="card">
+		<div class="large-3 medium-3 columns">
+			<div class="card" data-equalizer-watch >
 		
 			<article id="post-<?php the_ID(); ?>" <?php post_class(''); ?> role="article">
 			
@@ -25,7 +25,7 @@ $grid_columns = 4; ?>
 				</header> <!-- end article header -->	
 								
 				<section class="entry-content" itemprop="articleBody">
-					<?php wp_get_archives( 'type=' . get_site_option( 'd4p_content_type' ) ); ?> 
+					<?php wp_get_archives( 'type=' . get_option( 'd4p_content_type' ) ); ?> 
 				</section> <!-- end article section -->
 			</div>
 								    							
@@ -39,4 +39,3 @@ $grid_columns = 4; ?>
    </div>  <!--End Row: --> 
 
 <?php endif; ?>
-

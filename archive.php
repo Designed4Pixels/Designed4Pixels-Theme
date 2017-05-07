@@ -6,7 +6,7 @@
 	
 		<div id="inner-content" class="row">
 
-			<?php if ( get_post_type( get_the_ID() ) == get_site_option( 'd4p_content_type' ) ) { ?>
+			<?php if ( get_post_type( get_the_ID() ) == get_option( 'd4p_content_type' ) ) { ?>
     					<main id="main" class="large-12 medium-12 columns" role="main">
 			<?php } else {?>
 						<!-- To see additional archive styles, visit the /parts directory -->
@@ -20,7 +20,7 @@
 		
 		    <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-		    	<?php if ( get_post_type( get_the_ID() ) == get_site_option( 'd4p_content_type' ) ) { ?>
+		    	<?php if ( get_post_type( get_the_ID() ) == get_option( 'd4p_content_type' ) ) { ?>
     				<?php get_template_part( 'template-parts/loop', 'archive-grid' ); ?>
 				<?php } else {?>
 			 
@@ -41,7 +41,7 @@
 		
 			</main> <!-- end #main -->
 
-			<?php if ( get_post_type( get_the_ID() ) !== get_site_option( 'd4p_content_type' ) ) { ?>
+			<?php if ( get_post_type( get_the_ID() ) !== get_option( 'd4p_content_type' ) ) { ?>
 
 				<?php get_sidebar( 'sidebar1' ); }?>
 	    

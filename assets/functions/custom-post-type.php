@@ -16,7 +16,7 @@ in their own file.
 // let's create the function for the custom type
 function d4p_custom_post_setup() {
 
-	$content_type =  get_option( 'd4p_content_type' );
+	$content_type =  get_option( 'd4p_content_type', 'portfolio' );
 
 	$content_name = ucfirst ( $content_type );
 

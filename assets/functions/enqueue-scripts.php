@@ -24,11 +24,11 @@ function site_scripts() {
     wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/assets/css/font-awesome.min.css', array(), '4.7.0', 'all' );
 
     // Register Foundation stylesheet
-    wp_enqueue_style( 'foundation-css', get_template_directory_uri() . '/assets/css/foundation/foundation.min.css', array(), '', 'all' );
+    wp_enqueue_style( 'foundation', get_template_directory_uri() . '/assets/css/foundation/foundation.min.css', array(), '', 'all' );
 
     // Load our WooCommerce Styles if Plugin Loaded
     if ( class_exists( 'WooCommerce' ) ) {
-        wp_enqueue_style( 'woocommerce-css', get_template_directory_uri() . '/assets/css/woocommerce/woocommerce.min.css', array(), '', 'all' );
+        wp_enqueue_style( 'woocommerce', get_template_directory_uri() . '/assets/css/woocommerce/woocommerce.min.css', array(), '', 'all' );
     }  
    
     // Register main stylesheet

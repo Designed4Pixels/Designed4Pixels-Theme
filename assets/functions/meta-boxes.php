@@ -4,9 +4,11 @@
 
 function d4p_custom_meta_box() {
 
-    $archive_title = ucfirst( rtrim( get_option( 'd4p_content_type' ), "s"));
+    $d4p_archive_page = get_option( 'd4p_content_type', 'portfolio' );
 
-    add_meta_box( 'd4p_meta', __( $archive_title . ' Details', 'designed4pixels' ), 'd4p_meta_callback', get_option( 'd4p_content_type' ) );
+    $archive_title = ucfirst( rtrim( $d4p_archive_page, "s"));
+
+    add_meta_box( 'd4p_meta', __( $archive_title . ' Details', 'designed4pixels' ), 'd4p_meta_callback', $d4p_archive_page );
 }
 add_action( 'add_meta_boxes', 'd4p_custom_meta_box' );
 
