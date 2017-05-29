@@ -17,7 +17,7 @@
 		$wp_customize->add_section( 'd4p_color_scheme', 
 			array(
 				'title' => __( 'Theme Color Scheme', 'designed4pixels', 'designed4pixels' ),
-				'description' => __( 'Customize Your Websites Color Scheme;', 'designed4pixels' ),
+				'description' => __( 'Customize Your Websites Overall Color Scheme;', 'designed4pixels' ),
 				'priority'    => 10,
 		));
 

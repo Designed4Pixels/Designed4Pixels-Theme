@@ -20,7 +20,7 @@ function site_scripts() {
 
     //* Enqueue the Themes Fonts and Icons
     wp_enqueue_style( 'dashicons' );
-    wp_enqueue_style( 'google-fonts', '//fonts.googleapis.com/css?family=Source+Sans+Pro', array(), '' ); //?family=Gentium+Basic
+    wp_enqueue_style( 'google-fonts', '//fonts.googleapis.com/css?family=Source+Sans+Pro', array(), '' );
     wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/assets/css/font-awesome.min.css', array(), '4.7.0', 'all' );
 
     // Register Foundation stylesheet

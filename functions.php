@@ -140,7 +140,7 @@ function d4p_create_color_scheme_css() {
         return;
     }
 
-    $color_settings_array = (array) get_theme_mod( 'd4p_default_color_settings_array' );
+    $color_settings_array = (array) get_theme_mod( 'd4p_default_settings_array' );
 
   	foreach ( $color_settings_array as $key => $value ) {
       	$colors[ $key ] = get_theme_mod( $key, $value );

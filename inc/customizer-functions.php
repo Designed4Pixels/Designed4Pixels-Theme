@@ -40,6 +40,10 @@
     return ( is_active_widget( false, false, 'designed4pixels_show_posts_feature', true ) && is_front_page() );
   }
 
+  function d4p_slider_feature_on_home_page() {
+    return ( is_active_widget( false, false, 'designed4pixels_slider_feature', true ) && is_front_page() );
+  }
+
   function d4p_general_colors() {
     return ( 'custom' == get_theme_mod( 'd4p_color_scheme' ));
   }
@@ -47,6 +51,10 @@
   function is_blog_or_page() {
     return ( (! is_front_page()));
   }
+
+  function is_shop_page() {
+    return ( is_shop() );
+  } 
 
   function is_portfolio_page() {
     return ( get_post_type( get_the_ID()) == get_option( 'd4p_content_type' ));
@@ -176,5 +184,48 @@
 
     wp_localize_script( 'd4p-customize-controls', 'colorScheme', d4p_color_default_settings() );
 
+    wp_localize_script( 'd4p-customize-controls', 'defaultSettings', d4p_default_settings() );
+    
+    $d4p_master_font_one = get_theme_mod( 'd4p_master_font_one', 'Advent+Pro');
+    $d4p_master_font_two = get_theme_mod( 'd4p_master_font_two', 'Acme');
+    
+    $query_args = array(
+    'family' => ''. $d4p_master_font_one . '|' . $d4p_master_font_two .'',
+  );
+  
+  wp_register_style( 'customizer-custom-fonts', add_query_arg( $query_args, "//fonts.googleapis.com/css" ), array(), '' );
+  wp_enqueue_style( 'customizer-custom-fonts' );
+
   }
   add_action( 'customize_controls_enqueue_scripts', 'd4p_panels_js' );
+
+
+  function d4p_google_font_options() {
+
+    $selected_fonts_list = get_theme_mod( 'd4p_selected_fonts_list' );
+
+    foreach ( $selected_fonts_list as $key => $value ) {
+        $font_choices[ $key ] = __( $key, 'designed4pixels' );
+    }
+
+    return $font_choices;
+  }
+
+
+  function d4p_google_custom_fonts() {
+
+    global $wp_styles;
+
+    $d4p_master_font_one = get_theme_mod( 'd4p_master_font_one', 'Advent+Pro');
+    $d4p_master_font_two = get_theme_mod( 'd4p_master_font_two', 'Acme');
+    
+    $query_args = array(
+    'family' => ''. $d4p_master_font_one . '|' . $d4p_master_font_two .'',
+  );
+  
+  wp_register_style( 'google-custom-fonts', add_query_arg( $query_args, "//fonts.googleapis.com/css" ), array(), '' );
+  wp_enqueue_style( 'google-custom-fonts' );
+
+
+  }
+  add_action('wp_enqueue_scripts', 'd4p_google_custom_fonts', 999);
