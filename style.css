@@ -4,8 +4,8 @@ Theme Name: Designed4Pixels
 Theme URI: https://designedforpixels.com/downloads/designed4pixels-wordpress-theme/
 Author: Designed for Pixels (Gary Jordan)
 Author URI: https://designedforpixels.com
-Description: Designed4Pixels is an ideal theme for any content based website. It includes some powerful features for sites offering courses, tutorials, and other digital content to their visitors. Built-in integration with both Easy Digital Downloads and Woocommerce make this a powerful WordPress theme.
-Version: 0.7.9
+Description: Designed4Pixels is an ideal theme for any content based website. It includes some powerful features for sites offering courses, tutorials, and other digital content to their visitors. Built-in integration with both Easy Digital Downloads and WooCommerce make this a powerful WordPress theme.
+Version: 0.8.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: left-sidebar, right-sidebar, one-column, two-columns, custom-colors, featured-images, threaded-comments, footer-widgets, custom-menu, theme-options, portfolio, e-commerce, translation-ready
@@ -226,7 +226,7 @@ h6, .h6 {
 .logo-bar {
   background-color: #fefefe;
   padding: 0;
-  box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.2); }
+  box-shadow: 0 5px 9px -3px rgba(100, 100, 100, 0.1); }
   .logo-bar, .logo-bar ul {
     background-color: #fefefe;
     margin: 0; }
@@ -314,7 +314,7 @@ h6, .h6 {
   .logo-bar {
     background-color: #fefefe;
     border-top: solid 1px #f4f4f4;
-    box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.2); }
+    box-shadow: 0 5px 9px -3px rgba(100, 100, 100, 0.1); }
     .logo-bar li {
       border-bottom: 1px solid #f4f4f4; }
     .logo-bar li > a {
@@ -390,7 +390,7 @@ h6, .h6 {
   background: #fefefe;
   border-top: 1px solid #f4f4f4;
   padding: 0.3rem 0.3rem 0.3rem 0.5rem;
-  box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.2); }
+  box-shadow: 0 5px 9px -3px rgba(100, 100, 100, 0.1); }
 
 .title-bar-right {
   padding: 10px 0px; }
@@ -599,7 +599,7 @@ button.menu-icon, button.menu-icon:hover, button.menu-icon:focus {
 
 input[type=text],
 input[type=email],
-input[type=password]
+input[type=password],
 input[type=url] {
   color: #666;
   max-width: 450px; }
@@ -635,13 +635,7 @@ table {
 .off-canvas.is-transition-overlap.is-open {
   box-shadow: 0 0 12px rgba(10, 10, 10, 0.1); }
 
-#off-canvas-left .close-button, #off-canvas-left .close-button.medium {
-  top: 30px;
-  right: 0px;
-  left: 0px;
-  border: none !important;
-  position: relative; }
-
+#off-canvas-left .close-button, #off-canvas-left .close-button.medium,
 #off-canvas-right .close-button, #off-canvas-right .close-button.medium {
   top: 30px;
   right: 0;
@@ -649,12 +643,14 @@ table {
   border: none !important;
   position: relative; }
 
-.close-button {
-  color: #c6c6c6; }
-
-.close-button:hover,
+.close-button,
 .close-button:focus {
-  border: none !important; }
+  color: #d6d6d6;
+  border: none !important;
+  outline: none; }
+
+.close-button:hover {
+  color: #b0b0b0; }
 
 #off-canvas-top button.close-button {
   background-color: transparent;
@@ -1011,9 +1007,6 @@ button, input[type="button"], input[type="reset"], input[type="submit"], .button
 #home-feature-section {
   margin-top: -40px; }
 
-.slider-feature {
-  background-color: #fefefe; }
-
 /* ## 12.2: Home Page - Hero Image Feature Styles 
 ------------------------------------------------------ */
 .image-feature {
@@ -1035,10 +1028,10 @@ button, input[type="button"], input[type="reset"], input[type="submit"], .button
     font-family: "Source Sans Pro", sans-serif;
     font-size: 1.2rem; }
   .image-feature .image-mask {
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: rgba(255, 255, 255, 0.8);
     padding: 0px 10px; }
   .image-feature h1 {
-    color: #666;
+    color: #333;
     margin-bottom: 0.5rem;
     font-size: 1.8rem; }
   .image-feature p {
@@ -1085,9 +1078,7 @@ button, input[type="button"], input[type="reset"], input[type="submit"], .button
 ------------------------------------------------------ */
 .content-feature {
   background-color: #fefefe;
-  padding: 3.5rem 1.0rem 3.0rem;
-  border-top: solid 5px #f4f4f4;
-  border-bottom: solid 5px #f4f4f4; }
+  padding: 3.5rem 1.0rem 3.0rem; }
   .content-feature h1, .content-feature h2, .content-feature h3 {
     line-height: 1.2;
     margin-bottom: 0.5rem;
@@ -1117,9 +1108,8 @@ button, input[type="button"], input[type="reset"], input[type="submit"], .button
 ------------------------------------------------------ */
 .cta-feature {
   background-color: #fefefe;
-  color: #c6c6c6;
-  border-top: solid 5px #f1f1f1;
-  border-bottom: solid 5px #f1f1f1;
+  color: #fefefe;
+  border-top: solid 5px #a8a8a8;
   padding: 3.5rem 1.0rem 3.0rem; }
   .cta-feature h1, .cta-feature h2 {
     color: #666;
@@ -1146,7 +1136,6 @@ button, input[type="button"], input[type="reset"], input[type="submit"], .button
 ------------------------------------------------------ */
 .parallax-feature, .parallax-custom {
   border-top: 5px solid #f4f4f4;
-  border-bottom: 5px solid #f4f4f4;
   background-repeat: no-repeat;
   background-position: top center;
   background-attachment: fixed;
@@ -1213,8 +1202,7 @@ div[id^="parallax-inner-feature-"] .image-mask {
 .show-posts-feature {
   background-color: #fefefe;
   padding: 2.5rem 1.0rem 1.5rem;
-  border-top: solid 5px #f4f4f4;
-  border-bottom: solid 5px #f4f4f4; }
+  border-top: solid 5px #f4f4f4; }
   .show-posts-feature h1, .show-posts-feature h2 {
     line-height: 1.6;
     padding-left: 12px;
@@ -1415,6 +1403,11 @@ select {
   box-shadow: none;
   margin-bottom: 1.5rem; }
 
+/* ## 17.4: Meta Slider Styles
+------------------------------------------------------ */
+.metaslider {
+  margin: 0 auto; }
+
 /* ## 18.0: Social Media Header/Footer Icons
 ------------------------------------------------------ */
 #infobar-icons a[href*="facebook.com"]:before,
@@ -1507,7 +1500,7 @@ This stylesheet is used to set-up the Designed4Pixels Accent Color & Color Schem
   border-left: 2px solid #779ecb; }
 
 .color-one .cta-feature {
-  background-color: #aec5e0;
+  background-color: #c1d3e7;
   border-top: solid 5px #779ecb; }
 
 .color-one .cta-feature hr {
@@ -1570,7 +1563,7 @@ This stylesheet is used to set-up the Designed4Pixels Accent Color & Color Schem
   border-left: 2px solid #428bca; }
 
 .color-two .cta-feature {
-  background-color: #7eb0db;
+  background-color: #92bce0;
   border-top: solid 5px #428bca; }
 
 .color-two .cta-feature hr {
@@ -1633,7 +1626,7 @@ This stylesheet is used to set-up the Designed4Pixels Accent Color & Color Schem
   border-left: 2px solid #dd5454; }
 
 .color-three .cta-feature {
-  background-color: #ea9494;
+  background-color: #eea9a9;
   border-top: solid 5px #dd5454; }
 
 .color-three .cta-feature hr {
@@ -1696,7 +1689,7 @@ This stylesheet is used to set-up the Designed4Pixels Accent Color & Color Schem
   border-left: 2px solid #59a364; }
 
 .color-four .cta-feature {
-  background-color: #8abf92;
+  background-color: #9ac8a1;
   border-top: solid 5px #59a364; }
 
 .color-four .cta-feature hr {
@@ -1759,7 +1752,7 @@ This stylesheet is used to set-up the Designed4Pixels Accent Color & Color Schem
   border-left: 2px solid #9d58e2; }
 
 .color-five .cta-feature {
-  background-color: #c399ed;
+  background-color: #d0aff1;
   border-top: solid 5px #9d58e2; }
 
 .color-five .cta-feature hr {
@@ -1822,7 +1815,7 @@ This stylesheet is used to set-up the Designed4Pixels Accent Color & Color Schem
   border-left: 2px solid #928661; }
 
 .color-six .cta-feature {
-  background-color: #b3aa8d;
+  background-color: #bdb59c;
   border-top: solid 5px #928661; }
 
 .color-six .cta-feature hr {
@@ -1985,7 +1978,8 @@ body.dark-color-scheme {
   background-color: transparent; }
 
 .dark-color-scheme .parallax-feature {
-  border-top: 5px solid #0a0a0a; }
+  border-top: 5px solid #0a0a0a;
+  border-bottom: 5px solid #0a0a0a; }
 
 .dark-color-scheme .parallax-content {
   color: #bbb; }
@@ -2010,7 +2004,8 @@ body.dark-color-scheme {
 
 .dark-color-scheme .icon-feature {
   background-color: #0a0a0a;
-  border-top: 5px solid #111; }
+  border-top: 5px solid #111;
+  border-bottom: 5px solid #111; }
 
 .dark-color-scheme .icon-feature .icon-font {
   background-color: #111;
@@ -2051,7 +2046,8 @@ body.dark-color-scheme {
 
 .dark-color-scheme .content-feature {
   background-color: #f3f4f5;
-  border-top: solid 5px #e2e2e2; }
+  border-top: solid 5px #e2e2e2;
+  border-bottom: solid 5px #e2e2e2; }
 
 .dark-color-scheme .cta-feature {
   color: #eee; }
@@ -2064,7 +2060,8 @@ body.dark-color-scheme {
 
 .dark-color-scheme .show-posts-feature {
   background-color: #f3f4f5;
-  border-top: solid 5px #e2e2e2; }
+  border-top: solid 5px #e2e2e2;
+  border-bottom: solid 5px #e2e2e2; }
 
 .dark-color-scheme .show-posts-feature .archive-header > h2 {
   color: #666; }

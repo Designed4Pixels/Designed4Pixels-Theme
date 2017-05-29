@@ -17,7 +17,11 @@ $d4p_image_feature_widget_settings = (array) get_theme_mod( 'd4p_image_feature_w
 
 $d4p_image_feature_color_settings = (array) get_theme_mod( 'd4p_image_feature_color_settings');
 
+$d4p_image_feature_settings = (array) get_theme_mod( 'd4p_image_feature_settings');
+
+
 $sidebars_widgets = get_option( 'sidebars_widgets' );
+
 
 foreach ( $sidebars_widgets as $sidebars => $widgets ) {
 
@@ -43,7 +47,8 @@ if ( is_array( $d4p_active_widgets)) {
 			$d4p_image_feature_color_settings['d4p_image_feature_mask_color_' . $widget_number] 			= 'rgba( 255, 255, 255, 0.7)';
 			$d4p_image_feature_color_settings['d4p_image_feature_container_mask_color_' . $widget_number] 	= 'rgba( 255, 255, 255, 0)';
 			$d4p_image_feature_color_settings['d4p_image_feature_container_border_color_' . $widget_number] = 'rgba( 255, 255, 255, 0)';
-			$d4p_image_feature_color_settings['d4p_image_feature_position_' . $widget_number] 				= 100;
+
+			$d4p_image_feature_settings['d4p_image_feature_position_' . $widget_number] 				= 100;
 
 		} else {
 
@@ -54,18 +59,20 @@ if ( is_array( $d4p_active_widgets)) {
 			unset( $d4p_image_feature_color_settings['d4p_image_feature_mask_color_' . $widget_number] );
 			unset( $d4p_image_feature_color_settings['d4p_image_feature_container_mask_color_' . $widget_number] );
 			unset( $d4p_image_feature_color_settings['d4p_image_feature_container_border_color_' . $widget_number] );
-			unset( $d4p_image_feature_color_settings['d4p_image_feature_position_' . $widget_number] );
+
+			unset( $d4p_image_feature_settings['d4p_image_feature_position_' . $widget_number] );
 
 		}
 	}
 
 	set_theme_mod( 'd4p_image_feature_widget_settings', $d4p_image_feature_widget_settings );
 	set_theme_mod( 'd4p_image_feature_color_settings', $d4p_image_feature_color_settings );
+	set_theme_mod( 'd4p_image_feature_ettings', $d4p_image_feature_settings );
 
 }
 
 
-function d4p_hero_image_settings( $d4p_color_default_settings ) {
+function d4p_hero_image_color_settings( $d4p_color_default_settings ) {
 
 	$d4p_image_feature_color_settings = (array) get_theme_mod( 'd4p_image_feature_color_settings');
 
@@ -79,6 +86,23 @@ function d4p_hero_image_settings( $d4p_color_default_settings ) {
 
 	}
 }
-add_filter( 'd4p_color_default_settings', 'd4p_hero_image_settings', 10, 1 );
+add_filter( 'd4p_color_default_settings', 'd4p_hero_image_color_settings', 10, 1 );
+
+
+function d4p_hero_image_settings( $d4p_default_settings ) {
+
+	$d4p_image_feature_settings = (array) get_theme_mod( 'd4p_image_feature_settings');
+
+	if ( is_array( $d4p_image_feature_settings ) ) {
+
+		return ( array_merge( $d4p_default_settings, $d4p_image_feature_settings ));
+
+	} else {
+
+		return $d4p_default_settings;
+
+	}
+}
+add_filter( 'd4p_default_settings', 'd4p_hero_image_settings', 10, 1 );
 
 /* ----- End of Hero Image Settings ----- */

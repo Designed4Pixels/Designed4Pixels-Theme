@@ -14,55 +14,57 @@
 /* Home Page Show Posts Feature Settings */
 
 
-		$d4p_show_posts_feature_widget_settings = (array) get_theme_mod( 'd4p_show_posts_feature_widget_settings');
+$d4p_show_posts_feature_widget_settings = (array) get_theme_mod( 'd4p_show_posts_feature_widget_settings');
 
-		$d4p_show_posts_feature_color_settings = (array) get_theme_mod( 'd4p_show_posts_feature_color_settings');
+$d4p_show_posts_feature_color_settings = (array) get_theme_mod( 'd4p_show_posts_feature_color_settings');
 
-		$sidebars_widgets = get_option( 'sidebars_widgets' );
+$sidebars_widgets = get_option( 'sidebars_widgets' );
 
-		foreach ( $sidebars_widgets as $sidebars => $widgets ) {
+foreach ( $sidebars_widgets as $sidebars => $widgets ) {
 
-			if ( !empty( $widgets ) && ( is_array( $widgets ))) {
+	if ( !empty( $widgets ) && ( is_array( $widgets ))) {
 
-				foreach ( $widgets as $widget ) {
+		foreach ( $widgets as $widget ) {
 
-					$d4p_active_widgets[] = $widget;
+			$d4p_active_widgets[] = $widget;
 
-				}
-			}
 		}
+	}
+}
 
-		if ( is_array( $d4p_active_widgets)) {
+if ( is_array( $d4p_active_widgets)) {
 
-			foreach ( $d4p_show_posts_feature_widget_settings as $widget_number => $value ) {
+	foreach ( $d4p_show_posts_feature_widget_settings as $widget_number => $value ) {
 
-				if ( in_array($d4p_show_posts_feature_widget_settings[ $widget_number ]['id'], $d4p_active_widgets)) {
+		if ( in_array($d4p_show_posts_feature_widget_settings[ $widget_number ]['id'], $d4p_active_widgets)) {
 
-					unset( $d4p_show_posts_feature_color_settings[ 0 ] );
-					$d4p_show_posts_feature_color_settings[ 'd4p_show_posts_feature_background_' . $widget_number ]		= '#fefefe';
-					$d4p_show_posts_feature_color_settings[ 'd4p_show_posts_feature_border_color_' . $widget_number ]	= '#f1f1f1';			
-					$d4p_show_posts_feature_color_settings[ 'd4p_show_posts_header_color_' . $widget_number ]			= '#666';
-					$d4p_show_posts_feature_color_settings[ 'd4p_show_posts_card_border_color_' . $widget_number ]		= '#f1f1f1';
-					$d4p_show_posts_feature_color_settings[ 'd4p_show_posts_card_background_color_' . $widget_number ]	= '#fefefe';
-					$d4p_show_posts_feature_color_settings[ 'd4p_show_posts_card_header_color_' . $widget_number ]		= '#666';
-					$d4p_show_posts_feature_color_settings[ 'd4p_show_posts_card_text_color_' . $widget_number ]		= '#c6c6c6';
+			unset( $d4p_show_posts_feature_color_settings[ 0 ] );
+			$d4p_show_posts_feature_color_settings[ 'd4p_show_posts_feature_background_' . $widget_number ]				= '#fefefe';
+			$d4p_show_posts_feature_color_settings[ 'd4p_show_posts_feature_top_border_color_' . $widget_number ]		= '#f1f1f1';
+			$d4p_show_posts_feature_color_settings[ 'd4p_show_posts_feature_bottom_border_color_' . $widget_number ]	= 'rgba( 255, 255, 255, 0)';
+			$d4p_show_posts_feature_color_settings[ 'd4p_show_posts_header_color_' . $widget_number ]					= '#666';
+			$d4p_show_posts_feature_color_settings[ 'd4p_show_posts_card_border_color_' . $widget_number ]				= '#f1f1f1';
+			$d4p_show_posts_feature_color_settings[ 'd4p_show_posts_card_background_color_' . $widget_number ]			= '#fefefe';
+			$d4p_show_posts_feature_color_settings[ 'd4p_show_posts_card_header_color_' . $widget_number ]				= '#666';
+			$d4p_show_posts_feature_color_settings[ 'd4p_show_posts_card_text_color_' . $widget_number ]				= '#c6c6c6';
 
-				} else {
+		} else {
 
-					unset( $d4p_show_posts_feature_widget_settings[ $widget_number ] );
-					unset( $d4p_show_posts_feature_color_settings[ 'd4p_show_posts_feature_background_' . $widget_number ] );
-					unset( $d4p_show_posts_feature_color_settings[ 'd4p_show_posts_feature_border_color_' . $widget_number ] );
-					unset( $d4p_show_posts_feature_color_settings[ 'd4p_show_posts_header_color_' . $widget_number ] );
-					unset( $d4p_show_posts_feature_color_settings[ 'd4p_show_posts_card_border_color_' . $widget_number ] );
-					unset( $d4p_show_posts_feature_color_settings[ 'd4p_show_posts_card_background_color_' . $widget_number ] );
-					unset( $d4p_show_posts_feature_color_settings[ 'd4p_show_posts_card_header_color_' . $widget_number ] );
-					unset( $d4p_show_posts_feature_color_settings[ 'd4p_show_posts_card_text_color_' . $widget_number ] );
+			unset( $d4p_show_posts_feature_widget_settings[ $widget_number ] );
+			unset( $d4p_show_posts_feature_color_settings[ 'd4p_show_posts_feature_background_' . $widget_number ] );
+			unset( $d4p_show_posts_feature_color_settings[ 'd4p_show_posts_feature_top_border_color_' . $widget_number ] );
+			unset( $d4p_show_posts_feature_color_settings[ 'd4p_show_posts_feature_bottom_border_color_' . $widget_number ] );
+			unset( $d4p_show_posts_feature_color_settings[ 'd4p_show_posts_header_color_' . $widget_number ] );
+			unset( $d4p_show_posts_feature_color_settings[ 'd4p_show_posts_card_border_color_' . $widget_number ] );
+			unset( $d4p_show_posts_feature_color_settings[ 'd4p_show_posts_card_background_color_' . $widget_number ] );
+			unset( $d4p_show_posts_feature_color_settings[ 'd4p_show_posts_card_header_color_' . $widget_number ] );
+			unset( $d4p_show_posts_feature_color_settings[ 'd4p_show_posts_card_text_color_' . $widget_number ] );
 
-				}
-			}
+		}
+	}
 
-			set_theme_mod( 'd4p_show_posts_feature_widget_settings', $d4p_show_posts_feature_widget_settings );
-			set_theme_mod( 'd4p_show_posts_feature_color_settings', $d4p_show_posts_feature_color_settings );
+	set_theme_mod( 'd4p_show_posts_feature_widget_settings', $d4p_show_posts_feature_widget_settings );
+	set_theme_mod( 'd4p_show_posts_feature_color_settings', $d4p_show_posts_feature_color_settings );
 
 }
 

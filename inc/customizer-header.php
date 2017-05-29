@@ -20,7 +20,7 @@
 		$wp_customize->add_section('d4p_header_settings', array(
         	'title'       => __( 'Header', 'designed4pixels' ),
         	'priority'    => 40,
-        	'description' => __( 'Customize the Websites Header Settings;', 'designed4pixels' ),
+        	'description' => __( 'Customize the Websites Header and Navigation Menu Settings;', 'designed4pixels' ),
     	));
     	
 
@@ -46,9 +46,9 @@
 
     	$wp_customize->add_section( 'd4p_header_colors', 
 			array(
-				'title' => __( 'Header & Menu Colors', 'designed4pixels', 'designed4pixels' ),
-				'description' => __( 'Customize your websites Header & Menu Colors.', 'designed4pixels' ),
-				'priority'    => 10,
+				'title' => __( 'Header Menu Colors & Fonts', 'designed4pixels', 'designed4pixels' ),
+				'description' => __( 'Customize your Websites Header & Navigation Menu Colors and Fonts.', 'designed4pixels' ),
+				'priority'    => 30,
 				'panel' => 'd4p_color_settings',
 		));
 
@@ -194,7 +194,7 @@
 		// Alpha Color Picker control.
 		$wp_customize->add_control( new Customize_Alpha_Color_Control( $wp_customize, 'd4p_logobar_background',
 				array(
-					'label'         => __( 'Logo/Menu Bar Background Color', 'designed4pixels' ),
+					'label'         => __( 'Header Background Color', 'designed4pixels' ),
 					'section'       => 'd4p_header_colors',
 					'settings'      => 'd4p_logobar_background',
 					'show_opacity'  => true, // Optional.
@@ -229,7 +229,7 @@
 		// Alpha Color Picker control.
 		$wp_customize->add_control( new Customize_Alpha_Color_Control( $wp_customize, 'd4p_logobar_border_color',
 				array(
-					'label'         => __( 'Logo/Menu Bar Border Color', 'designed4pixels' ),
+					'label'         => __( 'Header Top Border Color', 'designed4pixels' ),
 					'section'       => 'd4p_header_colors',
 					'settings'      => 'd4p_logobar_border_color',
 					'show_opacity'  => true, // Optional.
@@ -257,7 +257,7 @@
 
 		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'd4p_anchor_color',
 				array(
-					'label'        => __( 'Menu Link Text Color', 'designed4pixels' ),
+					'label'        => __( 'Navigation Menu Text Color', 'designed4pixels' ),
 					'section'    => 'd4p_header_colors',
 			)));
 
@@ -278,7 +278,7 @@
 		// Alpha Color Picker control.
 		$wp_customize->add_control( new Customize_Alpha_Color_Control( $wp_customize, 'd4p_nav_hover_color',
 				array(
-					'label'         => __( 'Menu Link Text Hover Color', 'designed4pixels' ),
+					'label'         => __( 'Navigation Menu Text Hover Color', 'designed4pixels' ),
 					'section'       => 'd4p_header_colors',
 					'settings'      => 'd4p_nav_hover_color',
 					'show_opacity'  => true, // Optional.
@@ -313,7 +313,7 @@
 		// Alpha Color Picker control.
 		$wp_customize->add_control( new Customize_Alpha_Color_Control( $wp_customize, 'd4p_nav_hover_background',
 				array(
-					'label'         => __( 'Menu Option Background/Hover Color', 'designed4pixels' ),
+					'label'         => __( 'Navigation Menu Active/Hover Color', 'designed4pixels' ),
 					'section'       => 'd4p_header_colors',
 					'settings'      => 'd4p_nav_hover_background',
 					'show_opacity'  => true, // Optional.
@@ -330,6 +330,42 @@
 				)
 			)
 		);
+
+
+    	/* Set-up the Custom Header Title Custom Font */
+
+		$wp_customize->add_setting( 'd4p_header_title_custom_font',
+			array(
+				'default' => 'Source Sans Pro',
+    			'transport'   => 'postMessage',
+		));
+
+
+		$wp_customize->add_control( 'd4p_header_title_custom_font',
+    		array(
+        		'type' => 'select',
+        		'label' => __('Site Title Font:', 'designed4pixels' ),
+        		'section' => 'd4p_header_colors',
+        		'choices' => d4p_google_font_options()
+        ));
+
+
+        /* Set-up the Custom Header Site Description Custom Font */
+
+		$wp_customize->add_setting( 'd4p_header_description_custom_font',
+			array(
+				'default' => 'Source Sans Pro',
+    			'transport'   => 'postMessage',
+		));
+
+
+		$wp_customize->add_control( 'd4p_header_description_custom_font',
+    		array(
+        		'type' => 'select',
+        		'label' => __('Site Description Font:', 'designed4pixels' ),
+        		'section' => 'd4p_header_colors',
+        		'choices' => d4p_google_font_options()
+        ));
 
 
     	/* End of Header Settings */

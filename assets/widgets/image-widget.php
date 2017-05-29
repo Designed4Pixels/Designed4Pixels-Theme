@@ -28,7 +28,7 @@ class Designed4Pixels_Image_Feature extends WP_Widget {
 	function __construct() {
 		parent::__construct(
 			'Designed4Pixels_Image_Feature',
-			__('Designed4Pixels Image Feature', 'designed4pixels'),
+			__('D4P: Hero Image Feature', 'designed4pixels'),
 			array( 'description' => __( 'Add a Hero Image to a Home Page Featured Section.', 'designed4pixels' ), )
 		);
 	}

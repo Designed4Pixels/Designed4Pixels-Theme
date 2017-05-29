@@ -41,7 +41,8 @@
 
 					unset( $d4p_cta_feature_color_settings[ 0 ] );
 					$d4p_cta_feature_color_settings['d4p_cta_feature_background_' . $widget_number]			= '#fefefe';
-					$d4p_cta_feature_color_settings['d4p_cta_feature_border_' . $widget_number]				= '#f1f1f1';
+					$d4p_cta_feature_color_settings['d4p_cta_feature_top_border_' . $widget_number]			= '#f1f1f1';
+					$d4p_cta_feature_color_settings['d4p_cta_feature_bottom_border_' . $widget_number]		= 'rgba( 255, 255, 255, 0)';
 					$d4p_cta_feature_color_settings['d4p_cta_feature_color_' . $widget_number]		  		= '#c6c6c6';
 					$d4p_cta_feature_color_settings['d4p_cta_feature_header_color_' . $widget_number] 		= '#666';
 					$d4p_cta_feature_color_settings['d4p_cta_feature_sub_header_color_' . $widget_number] 	= '#888';
@@ -51,7 +52,8 @@
 
 					unset( $d4p_cta_feature_widget_settings[ $widget_number ] );
 					unset( $d4p_cta_feature_color_settings['d4p_cta_feature_background_' . $widget_number] );
-					unset( $d4p_cta_feature_color_settings['d4p_cta_feature_border_' . $widget_number] );
+					unset( $d4p_cta_feature_color_settings['d4p_cta_feature_top_border_' . $widget_number] );
+					unset( $d4p_cta_feature_color_settings['d4p_cta_feature_bottom_border_' . $widget_number] );					
 					unset( $d4p_cta_feature_color_settings['d4p_cta_feature_color_' . $widget_number] );
 					unset( $d4p_cta_feature_color_settings['d4p_cta_feature_header_color_' . $widget_number] );
 					unset( $d4p_cta_feature_color_settings['d4p_cta_feature_sub_header_color_' . $widget_number] );
