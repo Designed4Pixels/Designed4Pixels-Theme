@@ -1,8 +1,16 @@
 CHANGELOG
 
+= 0.8.0 =
+Date: 29th May 2017
+* Fixed WooCommerce Font Problem & Color CSS.
+* Added Custom WooCommerce Color Settings page.
+* Added Google Font Support.
+* Added Theme Support for Custom Backgrounds.
+* Added Widget & Support for Meta Slider Plugin.
+
 = 0.7.9 =
 Date: 7th May 2017
-* Updated WooCommerce Templates 7 CSS inline with version 3.0.5.
+* Updated WooCommerce Templates & CSS inline with version 3.0.5.
 
 = 0.7.8 =
 Date: 4th May 2017
