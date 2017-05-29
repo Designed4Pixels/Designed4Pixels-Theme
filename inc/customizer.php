@@ -23,6 +23,9 @@ require_once( get_template_directory() . '/inc/home-section-config-files/config-
 require_once( get_template_directory() . '/inc/home-section-config-files/config-parallax.php' );
 require_once( get_template_directory() . '/inc/home-section-config-files/config-show-posts.php' );
 
+if ( class_exists( 'MetaSliderPlugin' ) ) {
+	require_once( get_template_directory() . '/inc/home-section-config-files/config-slider.php' );
+}
 
 // Theme Customizer Color Scheme CSS Settings
 require_once( get_template_directory() . '/inc/color-scheme-css.php');
@@ -37,6 +40,9 @@ function d4p_register ( $wp_customize ) {
 
     //* Theme Customizer Color Scheme Settings
 	require_once( get_template_directory() . '/inc/customizer-color-scheme.php' );
+
+    //* Theme Customizer Header Settings
+	require_once( get_template_directory() . '/inc/customizer-google-fonts.php' );
 
     //* Theme Customizer Header Settings
 	require_once( get_template_directory() . '/inc/customizer-header.php' );
@@ -70,6 +76,16 @@ function d4p_register ( $wp_customize ) {
 
 	//* Theme Customizer Off Canvas Top & Bottom Settings
 	require_once( get_template_directory() . '/inc/customizer-off-canvas-top-bottom.php' );
+
+	if ( class_exists( 'MetaSliderPlugin' ) ) {
+    	//* Theme Customizer Slider Settings
+		require_once( get_template_directory() . '/inc/customizer-slider.php' );
+	}
+
+	if ( class_exists( 'WooCommerce' ) ) {
+    	//* Theme Customizer Slider Settings
+		require_once( get_template_directory() . '/inc/customizer-woocommerce.php' );
+	}
 
 }
 
