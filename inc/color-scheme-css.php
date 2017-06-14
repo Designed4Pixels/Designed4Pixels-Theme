@@ -54,7 +54,8 @@ function d4p_color_default_settings() {
       'd4p_woocommerce_card_border_color'                   => '#f1f1f1',
       'd4p_woocommerce_card_background_color'               => '#fefefe',
       'd4p_woocommerce_card_header_color'                   => '#666',
-      'd4p_woocommerce_card_text_color'                     => '#c6c6c6',   
+      'd4p_woocommerce_card_text_color'                     => '#c6c6c6',
+      'd4p_image_border_color'                              => '#fefefe',  
   );
 
 
@@ -72,20 +73,25 @@ function d4p_color_default_settings() {
 
 function d4p_default_settings() {
 
+  // Read in the color settings, ready to merge with below
   $d4p_color_settings = d4p_color_default_settings();
 
+  // Set-up default font settings
   $d4p_settings_array = array(
- 
-      'd4p_header_title_custom_font'  => 'Source Sans Pro',
-      'd4p_header_description_custom_font'  => 'Source Sans Pro',
-
+      'd4p_header_title_custom_font'                      => 'Source Sans Pro',
+      'd4p_header_description_custom_font'                => 'Source Sans Pro',
+      'd4p_general_body_custom_font'                      => 'Source Sans Pro',
+      'd4p_general_heading_custom_font'                   => 'Source Sans Pro',
   );
 
-  $d4p_default_settings = array_merge( $d4p_color_settings, $d4p_settings_array );
+  // Add in font settings from widgets via apply_filters
+  $d4p_settings_widget = apply_filters( 'd4p_default_settings', $d4p_settings_array );
 
-  $d4p_settings_updated = apply_filters( 'd4p_default_settings', $d4p_default_settings );
+  set_theme_mod( 'd4p_settings_array', $d4p_settings_widget );
 
-  $d4p_default_settings = array_filter( $d4p_settings_updated );
+  $d4p_settings_filtered = array_filter( $d4p_settings_widget );
+
+  $d4p_default_settings = array_merge( $d4p_color_settings, $d4p_settings_filtered );
 
   set_theme_mod( 'd4p_default_settings_array', $d4p_default_settings );
 
@@ -103,6 +109,7 @@ $css = <<<CSS
 body.custom-color-scheme {
     background:  {$colors['d4p_body_bg_color']};
     color: {$colors['d4p_body_font_color']};
+    font-family: {$colors['d4p_general_body_custom_font']};
 }
 
 /* .custom-color-scheme .sticky {
@@ -115,7 +122,10 @@ body.custom-color-scheme {
 
 .custom-color-scheme h1, .custom-color-scheme .h1,
 .custom-color-scheme h2, .custom-color-scheme .h2,
-.custom-color-scheme h3, .custom-color-scheme .h3 { color: {$colors['d4p_header_font_color']};
+.custom-color-scheme h3, .custom-color-scheme .h3,
+.custom-color-scheme h4, .custom-color-scheme .h4 { 
+    color: {$colors['d4p_header_font_color']};
+    font-family: {$colors['d4p_general_heading_custom_font']};
 }
 
 .custom-color-scheme .archive-header {
@@ -454,6 +464,10 @@ body.custom-color-scheme {
     font-family: {$colors['d4p_header_description_custom_font']};
 }
 
+.custom-color-scheme .entry-content img {
+    border: solid 4px {$colors['d4p_image_border_color']};
+}
+
 @media screen and (max-width: 64em) {
 
   .custom-color-scheme .logo-bar {
@@ -523,6 +537,8 @@ foreach ( $image_feature_colors as $key => $value) {
     $color_5 = $colors[ 'd4p_image_feature_container_mask_color_' . $key ];
     $color_6 = $colors[ 'd4p_image_feature_container_border_color_' . $key ];
     $color_7 = $colors[ 'd4p_image_feature_position_' . $key ];
+    $color_8 = $colors[ 'd4p_image_feature_heading_font_' . $key ];
+    $color_9 = $colors[ 'd4p_image_feature_body_font_' . $key ];
 
 $feature_colors .= <<<CSS
 
@@ -536,6 +552,7 @@ $feature_colors .= <<<CSS
 
     .custom-color-scheme #image-feature-{$value['page_name']} .image-feature h1 {
         color: {$color_3};
+        font-family:  {$color_8};
     }
 
     .custom-color-scheme #image-feature-{$value['page_name']} .image-feature .narrow-container {
@@ -543,6 +560,10 @@ $feature_colors .= <<<CSS
         color: {$color_4};
         background-color: {$color_5};
         border: 5px solid {$color_6}
+    }
+
+    .custom-color-scheme #image-feature-{$value['page_name']} .image-feature .narrow-container p {
+        font-family:  {$color_9};
     }
 
 CSS;
@@ -566,6 +587,8 @@ if ( is_array($icon_box_feature_colors[ $key ])) {
     $color_6 = $colors[ 'd4p_icon_font_background_' . $key ];
     $color_7 = $colors[ 'd4p_icon_font_border_' . $key ];
     $color_8 = $colors[ 'd4p_icon_font_color_' . $key ];
+    $color_9 = $colors[ 'd4p_icon_font_heading_font_' . $key ];
+    $color_10 = $colors[ 'd4p_icon_font_body_font_' . $key ];
 
 
 $feature_colors .= <<<CSS
@@ -580,6 +603,7 @@ $feature_colors .= <<<CSS
     background-color: {$color_6};
     color: {$color_8};
     border: 1px solid {$color_7};
+    font-family:  {$color_10};
 }
 
 .custom-color-scheme #icon-feature-{$key} .icon-feature .icon-box {
@@ -588,6 +612,7 @@ $feature_colors .= <<<CSS
 
 .custom-color-scheme #icon-feature-{$key} .icon-feature h2 {
     color: {$color_5};
+    font-family:  {$color_9};
 }
 
 CSS;
@@ -608,6 +633,8 @@ if ( is_array($content_feature_colors[ $key ])) {
     $color_3 = $colors[ 'd4p_content_feature_font_color_' . $key ];
     $color_4 = $colors[ 'd4p_content_feature_header_color_' . $key ];
     $color_5 = $colors[ 'd4p_content_feature_hr_color_' . $key ];
+    $color_6 = $colors[ 'd4p_content_feature_heading_font_' . $key ];
+    $color_7 = $colors[ 'd4p_content_feature_body_font_' . $key ];
 
 
 $feature_colors .= <<<CSS
@@ -618,10 +645,15 @@ $feature_colors .= <<<CSS
         border-top: solid 5px {$color_2};
     }
 
+    .custom-color-scheme #content-feature-{$value['page_name']} .content-feature p {
+        font-family: {$color_7};
+    }
+
     .custom-color-scheme #content-feature-{$value['page_name']} .content-feature h1,
     .custom-color-scheme #content-feature-{$value['page_name']} .content-feature h2,
     .custom-color-scheme #content-feature-{$value['page_name']} .content-feature h3 {
         color: {$color_4};
+        font-family: {$color_6};
     }
 
     .custom-color-scheme #content-feature-{$value['page_name']} .content-feature hr {
@@ -649,6 +681,8 @@ $color_4 = $colors[ 'd4p_cta_feature_color_' . $key ];
 $color_5 = $colors[ 'd4p_cta_feature_header_color_' . $key ];
 $color_6 = $colors[ 'd4p_cta_feature_sub_header_color_' . $key ];
 $color_7 = $colors[ 'd4p_cta_feature_hr_color_' . $key ];
+$color_8 = $colors[ 'd4p_cta_feature_heading_font_' . $key ];
+$color_9 = $colors[ 'd4p_cta_feature_body_font_' . $key ];
 
 $feature_colors .= <<<CSS
 
@@ -662,10 +696,16 @@ $feature_colors .= <<<CSS
     .custom-color-scheme #cta-feature-{$key} .cta-feature h1,
     .custom-color-scheme #cta-feature-{$key} .cta-feature h2 {
         color: {$color_5};
+        font-family: {$color_8};
     }
 
     .custom-color-scheme #cta-feature-{$key} .cta-feature h3 {
         color: {$color_6};
+        font-family: {$color_8};
+    }
+
+    .custom-color-scheme #cta-feature-{$key} .cta-feature p {
+        font-family: {$color_9};
     }
 
     .custom-color-scheme #cta-feature-{$key} .cta-feature hr {
@@ -693,6 +733,8 @@ $color_4 = $colors[ 'd4p_parallax_hr_color_' . $key ];
 $color_5 = $colors[ 'd4p_parallax_feature_mask_color_' . $key ];
 $color_6 = $colors[ 'd4p_parallax_inner_feature_mask_color_' . $key ];
 $color_7 = $colors[ 'd4p_parallax_inner_feature_border_color_' . $key ];
+$color_8 = $colors[ 'd4p_parallax_heading_font_' . $key ];
+$color_9 = $colors[ 'd4p_parallax_body_font_' . $key ];
 
 
 $feature_colors .= <<<CSS
@@ -722,6 +764,12 @@ $feature_colors .= <<<CSS
     .custom-color-scheme #parallax-inner-feature-{$value['page_name']} .parallax-inner-content h2,
     .custom-color-scheme #parallax-inner-feature-{$value['page_name']} .parallax-inner-content h3 {
         color: {$color_1};
+        font-family:  {$color_8};
+    }
+
+    .custom-color-scheme #parallax-inner-feature-{$value['page_name']} .parallax-inner-content p {
+        color: {$color_2};
+        font-family:  {$color_9};
     }
 
     .custom-color-scheme #parallax-inner-feature-{$value['page_name']} .parallax-inner-content hr {
@@ -756,6 +804,8 @@ $color_5 = $colors[ 'd4p_show_posts_card_border_color_' . $key ];
 $color_6 = $colors[ 'd4p_show_posts_card_background_color_' . $key ];
 $color_7 = $colors[ 'd4p_show_posts_card_header_color_' . $key ];
 $color_8 = $colors[ 'd4p_show_posts_card_text_color_' . $key ];
+$color_9 = $colors[ 'd4p_show_posts_heading_font_' . $key ];
+$color_10 = $colors[ 'd4p_show_posts_body_font_' . $key ];
 
 $feature_colors .= <<<CSS
 
@@ -767,6 +817,7 @@ $feature_colors .= <<<CSS
 
     .custom-color-scheme #show-posts-feature-{$value['name']} .show-posts-feature .archive-header > h2 {
           color: {$color_4};
+          font-family: {$color_9};
     }
 
     .custom-color-scheme #show-posts-feature-{$value['name']} .show-posts-feature .card {
@@ -776,10 +827,17 @@ $feature_colors .= <<<CSS
 
     .custom-color-scheme #show-posts-feature-{$value['name']} .show-posts-feature .card-section .title a {
           color: {$color_7};
+          font-family: {$color_9};
     }
 
     .custom-color-scheme #show-posts-feature-{$value['name']} .show-posts-feature .card-section .entry-content {
           color: {$color_8};
+          font-family: {$color_10};
+    }
+    
+     .custom-color-scheme #show-posts-feature-{$value['name']} .show-posts-feature .card-section .entry-content p {
+          color: {$color_8};
+          font-family: {$color_10};
     }
 
 CSS;
@@ -796,13 +854,11 @@ foreach ( $slider_feature_colors as $key => $value) {
 if ( is_array($slider_feature_colors[ $key ])) {
 
 $color_1 = $colors[ 'd4p_slider_feature_background_' . $key ];
-$color_2 = $colors[ 'd4p_slider_feature_bottom_border_color_' . $key ];
 
 $feature_colors .= <<<CSS
 
     .custom-color-scheme #slider-feature-{$value['slider_id']} .slider-feature {
             background-color: {$color_1};
-            border-bottom:  5px solid {$color_2};
     }
 
 CSS;

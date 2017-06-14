@@ -14,9 +14,7 @@
 /* Home Page Image Feature Settings */
 
 $d4p_image_feature_widget_settings = (array) get_theme_mod( 'd4p_image_feature_widget_settings');
-
 $d4p_image_feature_color_settings = (array) get_theme_mod( 'd4p_image_feature_color_settings');
-
 $d4p_image_feature_settings = (array) get_theme_mod( 'd4p_image_feature_settings');
 
 
@@ -48,7 +46,9 @@ if ( is_array( $d4p_active_widgets)) {
 			$d4p_image_feature_color_settings['d4p_image_feature_container_mask_color_' . $widget_number] 	= 'rgba( 255, 255, 255, 0)';
 			$d4p_image_feature_color_settings['d4p_image_feature_container_border_color_' . $widget_number] = 'rgba( 255, 255, 255, 0)';
 
-			$d4p_image_feature_settings['d4p_image_feature_position_' . $widget_number] 				= 100;
+			$d4p_image_feature_settings['d4p_image_feature_heading_font_' . $widget_number] 				= 'Source Sans Pro';
+			$d4p_image_feature_settings['d4p_image_feature_body_font_' . $widget_number] 					= 'Source Sans Pro';
+			$d4p_image_feature_settings['d4p_image_feature_position_' . $widget_number] 					= 100;
 
 		} else {
 
@@ -60,6 +60,8 @@ if ( is_array( $d4p_active_widgets)) {
 			unset( $d4p_image_feature_color_settings['d4p_image_feature_container_mask_color_' . $widget_number] );
 			unset( $d4p_image_feature_color_settings['d4p_image_feature_container_border_color_' . $widget_number] );
 
+			unset( $d4p_image_feature_settings['d4p_image_feature_heading_font_' . $widget_number] );
+			unset( $d4p_image_feature_settings['d4p_image_feature_body_font_' . $widget_number] );
 			unset( $d4p_image_feature_settings['d4p_image_feature_position_' . $widget_number] );
 
 		}
@@ -67,7 +69,7 @@ if ( is_array( $d4p_active_widgets)) {
 
 	set_theme_mod( 'd4p_image_feature_widget_settings', $d4p_image_feature_widget_settings );
 	set_theme_mod( 'd4p_image_feature_color_settings', $d4p_image_feature_color_settings );
-	set_theme_mod( 'd4p_image_feature_ettings', $d4p_image_feature_settings );
+	set_theme_mod( 'd4p_image_feature_settings', $d4p_image_feature_settings );
 
 }
 

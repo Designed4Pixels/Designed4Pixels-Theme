@@ -28,7 +28,7 @@ class Designed4Pixels_Show_Posts_Feature extends WP_Widget {
 	function __construct() {
 		parent::__construct(
 			'Designed4Pixels_Show_Posts_Feature',
-			__('Designed4Pixels Show Posts Feature', 'designed4pixels'),
+			__('D4P: Show Posts Feature', 'designed4pixels'),
 			array( 'description' => __( 'Show 3 Posts in any Home Page Featured Section.', 'designed4pixels' ), )
 		);
 	}

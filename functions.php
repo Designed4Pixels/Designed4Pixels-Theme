@@ -144,10 +144,21 @@ function d4p_create_color_scheme_css() {
 
   	foreach ( $color_settings_array as $key => $value ) {
       	$colors[ $key ] = get_theme_mod( $key, $value );
-  	}?>
+  	}
+
+  	$d4p_settings_array = get_theme_mod( 'd4p_settings_array' );
+
+  	$font_settings = get_theme_mod( 'd4p_selected_fonts_list');
+
+
+    $test = str_ireplace(array_values($font_settings), array_keys($font_settings), $colors);
+  	
+
+  	?>
 
     <style type="text/css" id="custom-color-scheme" >
-        <?php echo d4p_get_color_scheme_css( $colors ); ?>
+        <?php
+        echo d4p_get_color_scheme_css( $test ); ?>
     </style>
     <?php }
 add_action( 'wp_head', 'd4p_create_color_scheme_css' );
@@ -158,8 +169,8 @@ add_action( 'wp_head', 'd4p_create_color_scheme_css' );
 add_theme_support( 'post-thumbnails' );
 add_image_size( 'side-bar', 335, 200, true );      						// Side Bar Images
 add_image_size( 'show-posts', 370, 250, array( 'left', 'top' ) );      	// Show Posts Images
-add_image_size( 'post-index', 768, 350, array( 'left', 'top' ) );   	// Blog Page Images
-add_image_size( 'single-post', 768, 350, array( 'left', 'top' ) );   	// Single Page & Post Images
+add_image_size( 'post-index', 768, 550, array( 'left', 'top' ) );   	// Blog Page Images
+add_image_size( 'single-post', 768, 550, array( 'left', 'top' ) );   	// Single Page & Post Images
 add_image_size( 'row-width', 970, 550, array( 'center', 'top' ) );     	// Row Width
 add_image_size( 'full-content', 1200, 800, array( 'left', 'top' ) );    // Full Content Width
 add_image_size( 'full-width', 1600, 800, true );   						// Full Size (Parallax, etc)

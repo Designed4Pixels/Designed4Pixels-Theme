@@ -31,6 +31,46 @@
 		));
 
 
+		/* Set-up the Custom Header Site Description Custom Font */
+
+		$wp_customize->add_setting( 'd4p_icon_font_heading_font_' . $number,
+			array(
+				'default' => 'Source Sans Pro',
+    			'transport'   => 'postMessage',
+		));
+
+
+		$wp_customize->add_control( new WP_Customize_Font_Control( $wp_customize, 'd4p_icon_font_heading_font_' . $number,
+    		array(
+        		'type' => 'select_font',
+        		'select_class' => 'customize-heading-font',
+        		'show_styles'	=> false,
+        		'label' => __('Icon Box Feature Heading Font ('. $version . ')', 'designed4pixels' ),
+        		'section' => 'd4p_icon_box_feature_settings_' . $number,
+        		'choices' => d4p_google_font_options(),
+        )));
+
+
+        /* Set-up the Custom Header Site Description Custom Font */
+
+		$wp_customize->add_setting( 'd4p_icon_font_body_font_' . $number,
+			array(
+				'default' => 'Source Sans Pro',
+    			'transport'   => 'postMessage',
+		));
+
+
+		$wp_customize->add_control( new WP_Customize_Font_Control( $wp_customize, 'd4p_icon_font_body_font_' . $number,
+    		array(
+        		'type' => 'select_font',
+        		'select_class' => 'customize-body-font',
+        		'show_styles'	=> false,
+        		'label' => __('Icon Box Feature Body Font ('. $version . ')', 'designed4pixels' ),
+        		'section' => 'd4p_icon_box_feature_settings_' . $number,
+        		'choices' => d4p_google_font_options(),
+        )));
+
+
 		/* Set-up Icon Feature Background Color */
 
 		$wp_customize->add_setting( 'd4p_icon_feature_background_' . $number,

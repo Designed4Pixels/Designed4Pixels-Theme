@@ -33,6 +33,48 @@
 		));
 
 
+		/* Set-up the Custom Header Site Description Custom Font */
+
+		$wp_customize->add_setting( 'd4p_parallax_heading_font_' . $number,
+			array(
+				'default' => 'Source Sans Pro',
+    			'transport'   => 'postMessage',
+		));
+
+
+		$wp_customize->add_control( new WP_Customize_Font_Control( $wp_customize, 'd4p_parallax_heading_font_' . $number,
+    		array(
+        		'type' => 'select_font',
+        		'select_class' => 'customize-heading-font',
+        		'show_styles'	=> false,
+        		'label' => __('Parallax Feature Heading Font ('. $version . ')', 'designed4pixels' ),
+        		'section' => 'd4p_parallax_feature_colors_' . $number,
+        		'choices' => d4p_google_font_options(),
+        )));
+
+
+        /* Set-up the Custom Header Site Description Custom Font */
+
+		$wp_customize->add_setting( 'd4p_parallax_body_font_' . $number,
+			array(
+				'default' => 'Source Sans Pro',
+    			'transport'   => 'postMessage',
+		));
+
+
+		$wp_customize->add_control( new WP_Customize_Font_Control( $wp_customize, 'd4p_parallax_body_font_' . $number,
+    		array(
+        		'type' => 'select_font',
+        		'select_class' => 'customize-body-font',
+        		'show_styles'	=> false,
+        		'label' => __('Parallax Feature Body Font ('. $version . ')', 'designed4pixels' ),
+        		'section' => 'd4p_parallax_feature_colors_' . $number,
+        		'choices' => d4p_google_font_options(),
+        )));
+
+
+		/* Parallax Header Color */
+
 		$wp_customize->add_setting( 'd4p_parallax_header_color_' . $number,
 			array(
 				'default' => $color_settings[ 'd4p_parallax_header_color_' . $number ],

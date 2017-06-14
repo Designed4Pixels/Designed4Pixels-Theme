@@ -142,7 +142,7 @@
 
 		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'd4p_header_font_color',
 				array(
-					'label'        => __( 'Header Font Color', 'designed4pixels' ),
+					'label'        => __( 'Heading Font Color', 'designed4pixels' ),
 					'section'    => 'd4p_general_colors',
 			)));
 
@@ -158,6 +158,20 @@
 					'label'        => __( 'Border Color', 'designed4pixels' ),
 					'section'    => 'd4p_general_colors',
 			))); 
+
+		$wp_customize->add_setting( 'd4p_image_border_color',
+				array(
+					'default' => '#fefefe',
+    				'transport'   => 'postMessage',
+    				'sanitize_callback' => 'd4p_sanitize_hex_color',
+			));
+
+		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'd4p_image_border_color',
+				array(
+					'label'        => __( 'Image Border Color', 'designed4pixels' ),
+					'section'    => 'd4p_general_colors',
+			)));
+
 
 		$wp_customize->add_setting( 'd4p_button_background_color',
 				array(

@@ -14,8 +14,8 @@
 /* Home Page Icon Box Feature Settings */
 
 $d4p_icon_box_feature_widget_settings = (array) get_theme_mod( 'd4p_icon_box_feature_widget_settings');
-
 $d4p_icon_box_feature_color_settings = (array) get_theme_mod( 'd4p_icon_box_feature_color_settings');
+$d4p_icon_box_feature_font_settings = (array) get_theme_mod( 'd4p_icon_box_feature_font_settings');
 
 $sidebars_widgets = get_option( 'sidebars_widgets' );
 
@@ -47,6 +47,9 @@ if ( is_array( $d4p_active_widgets)) {
 			$d4p_icon_box_feature_color_settings['d4p_icon_font_border_' . $widget_number] 				= '#c6c6c6';
 			$d4p_icon_box_feature_color_settings['d4p_icon_font_color_' . $widget_number] 				= '#c6c6c6';
 
+			$d4p_icon_box_feature_font_settings[ 'd4p_icon_font_heading_font_' . $widget_number ] 		= 'Source Sans Pro';
+			$d4p_icon_box_feature_font_settings[ 'd4p_icon_font_body_font_' . $widget_number ] 			= 'Source Sans Pro';
+
 
 		} else {
 
@@ -60,11 +63,15 @@ if ( is_array( $d4p_active_widgets)) {
 			unset( $d4p_icon_box_feature_color_settings['d4p_icon_font_border_' . $widget_number] );
 			unset( $d4p_icon_box_feature_color_settings['d4p_icon_font_color_' . $widget_number] );
 
+			unset( $d4p_icon_box_feature_font_settings[ 'd4p_icon_font_heading_font_' . $widget_number ] );
+			unset( $d4p_icon_box_feature_font_settings[ 'd4p_icon_font_body_font_' . $widget_number ] );
+
 		}
 	}
 
 	set_theme_mod( 'd4p_icon_box_feature_widget_settings', $d4p_icon_box_feature_widget_settings );
 	set_theme_mod( 'd4p_icon_box_feature_color_settings', $d4p_icon_box_feature_color_settings );
+	set_theme_mod( 'd4p_icon_box_feature_font_settings', $d4p_icon_box_feature_font_settings );
 
 }
 
@@ -84,5 +91,22 @@ function d4p_icon_box_feature_settings( $d4p_color_default_settings ) {
 	}
 }
 add_filter( 'd4p_color_default_settings', 'd4p_icon_box_feature_settings', 10, 1 );
+
+
+function d4p_icon_box_feature_font_settings( $d4p_default_settings ) {
+
+	$d4p_icon_box_font_settings = (array) get_theme_mod( 'd4p_icon_box_feature_font_settings');
+
+	if ( is_array( $d4p_icon_box_font_settings ) ) {
+
+		return ( array_merge( $d4p_default_settings, $d4p_icon_box_font_settings ));
+
+	} else {
+
+		return $d4p_default_settings;
+
+	}
+}
+add_filter( 'd4p_default_settings', 'd4p_icon_box_feature_font_settings', 10, 1 );
 
 /* ----- End of Icon Box Settings ----- */

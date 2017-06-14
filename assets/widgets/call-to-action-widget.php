@@ -28,7 +28,7 @@ class Designed4Pixels_Call_to_Action_Feature extends WP_Widget {
 	function __construct() {
 		parent::__construct(
 			'Designed4Pixels_Call_to_Action_Feature',
-			__('Designed4Pixels Call-to-Action Feature', 'designed4pixels'),
+			__('D4P: Call-to-Action Feature', 'designed4pixels'),
 			array( 'description' => __( 'Add a Call-to-Action Feature to a Home Page Featured Section.', 'designed4pixels' ), )
 		);
 	}
@@ -67,9 +67,9 @@ class Designed4Pixels_Call_to_Action_Feature extends WP_Widget {
        					<?php
        					if( has_shortcode( $instance['cta_right_text'], 'mc4wp_form' ) ) {
        						echo do_shortcode( $instance['cta_right_text'] );
-       					} else {
-       							echo $instance['cta_right_text'];
-       					}
+       					} else { ?>
+       						<p><?php echo $instance['cta_right_text']; ?></p>
+       					<?php }
        					  
        					?>
 					</div>

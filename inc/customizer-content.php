@@ -11,12 +11,14 @@
 
 */
 
-    	$color_settings  = (array) get_theme_mod( 'd4p_content_feature_color_settings' );
-		$widget_settings = (array) get_theme_mod( 'd4p_content_feature_widget_settings' );
 
-		foreach ( $widget_settings as $number => $value ) {
+$color_settings  = (array) get_theme_mod( 'd4p_content_feature_color_settings' );
+$widget_settings = (array) get_theme_mod( 'd4p_content_feature_widget_settings' );
 
-			if ( is_array($widget_settings[ $number ])) {
+
+foreach ( $widget_settings as $number => $value ) {
+
+	if ( is_array($widget_settings[ $number ])) {
 
 		$version = $widget_settings[ $number ]['index'];
 
@@ -28,6 +30,46 @@
 				'panel' => 'd4p_color_settings',
 				'active_callback' => 'd4p_content_feature_on_home_page',
 		));
+
+
+		/* Set-up the Custom Header Site Description Custom Font */
+
+		$wp_customize->add_setting( 'd4p_content_feature_heading_font_' . $number,
+			array(
+				'default' => 'Source Sans Pro',
+    			'transport'   => 'postMessage',
+		));
+
+
+		$wp_customize->add_control( new WP_Customize_Font_Control( $wp_customize, 'd4p_content_feature_heading_font_' . $number,
+    		array(
+        		'type' => 'select_font',
+        		'select_class' => 'customize-heading-font',
+        		'show_styles'	=> false,
+        		'label' => __('Content Feature Heading Font ('. $version . ')', 'designed4pixels' ),
+        		'section' => 'd4p_content_feature_colors_' . $number,
+        		'choices' => d4p_google_font_options(),
+        )));
+
+
+        /* Set-up the Custom Header Site Description Custom Font */
+
+		$wp_customize->add_setting( 'd4p_content_feature_body_font_' . $number,
+			array(
+				'default' => 'Source Sans Pro',
+    			'transport'   => 'postMessage',
+		));
+
+
+		$wp_customize->add_control( new WP_Customize_Font_Control( $wp_customize, 'd4p_content_feature_body_font_' . $number,
+    		array(
+        		'type' => 'select_font',
+        		'select_class' => 'customize-body-font',
+        		'show_styles'	=> false,
+        		'label' => __('Content Feature Body Font ('. $version . ')', 'designed4pixels' ),
+        		'section' => 'd4p_content_feature_colors_' . $number,
+        		'choices' => d4p_google_font_options(),
+        )));
 
 
 		$wp_customize->add_setting( 'd4p_content_feature_background_' . $number,
@@ -42,7 +84,6 @@
 			array(
 				'label'        => __( 'Content Background Color ('. $version . ')', 'designed4pixels' ),
 				'section'    => 'd4p_content_feature_colors_' . $number,
-				// 'settings'   => 'd4p_body_bg_color', (set in theme-customizer-controls.js)
 		)));
 
 
@@ -59,7 +100,6 @@
 			array(
 				'label'        => __( 'Content Feature Heading Color ('. $version . ')', 'designed4pixels' ),
 				'section'    => 'd4p_content_feature_colors_' . $number,
-				// 'settings'   => 'd4p_body_bg_color', (set in theme-customizer-controls.js)
 		)));
 
 
@@ -76,7 +116,6 @@
 			array(
 				'label'        => __( 'Content Feature Text Color ('. $version . ')', 'designed4pixels' ),
 				'section'    => 'd4p_content_feature_colors_' . $number,
-				// 'settings'   => 'd4p_body_bg_color', (set in theme-customizer-controls.js)
 		)));
 
 
@@ -93,7 +132,6 @@
 			array(
 				'label'        => __( 'Content Feature Border Color ('. $version . ')', 'designed4pixels' ),
 				'section'    => 'd4p_content_feature_colors_' . $number,
-				// 'settings'   => 'd4p_body_bg_color', (set in theme-customizer-controls.js)
 		)));
 
 
@@ -110,10 +148,8 @@
 			array(
 				'label'        => __( 'Content Feature Horizontal Rule Color ('. $version . ')', 'designed4pixels' ),
 				'section'    => 'd4p_content_feature_colors_' . $number,
-				// 'settings'   => 'd4p_body_bg_color', (set in theme-customizer-controls.js)
 		)));
-
-	} }
-
+	}
+}
 
 /* End of Content Feature Settings */

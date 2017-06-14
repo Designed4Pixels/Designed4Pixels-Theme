@@ -40,12 +40,11 @@ if ( is_array( $d4p_active_widgets)) {
 
 			unset( $d4p_slider_feature_color_settings[ 0 ] );
 			$d4p_slider_feature_color_settings[ 'd4p_slider_feature_background_' . $widget_number ]				= '#fefefe';
-			$d4p_slider_feature_color_settings[ 'd4p_slider_feature_bottom_border_color_' . $widget_number ]	= 'rgba( 255, 255, 255, 0)';
+
 		} else {
 
 			unset( $d4p_slider_feature_widget_settings[ $widget_number ] );
 			unset( $d4p_slider_feature_color_settings[ 'd4p_slider_feature_background_' . $widget_number ] );
-			unset( $d4p_slider_feature_color_settings[ 'd4p_slider_feature_bottom_border_color_' . $widget_number ] );
 		}
 	}
 

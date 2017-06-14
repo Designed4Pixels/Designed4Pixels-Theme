@@ -42,7 +42,10 @@ function d4p_register ( $wp_customize ) {
 	require_once( get_template_directory() . '/inc/customizer-color-scheme.php' );
 
     //* Theme Customizer Header Settings
-	require_once( get_template_directory() . '/inc/customizer-google-fonts.php' );
+	require_once( get_template_directory() . '/inc/customizer-google-fonts.php' ); 
+
+    //* Theme Customizer Header Settings
+	require_once( get_template_directory() . '/inc/customizer-general-fonts.php' );
 
     //* Theme Customizer Header Settings
 	require_once( get_template_directory() . '/inc/customizer-header.php' );

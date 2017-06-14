@@ -28,7 +28,7 @@ class Designed4Pixels_Icon_Box_Feature extends WP_Widget {
 	function __construct() {
 		parent::__construct(
 			'Designed4Pixels_Icon_Box_Feature',
-			__('Designed4Pixels Icon Box Feature', 'designed4pixels'),
+			__('D4P: Icon Box Feature', 'designed4pixels'),
 			array( 'description' => __( 'Add an Icon Box to a Home Page Featured Section.', 'designed4pixels' ), )
 		);
 	}

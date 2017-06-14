@@ -28,7 +28,7 @@ class Designed4Pixels_Content_Feature extends WP_Widget {
 	function __construct() {
 		parent::__construct(
 			'Designed4Pixels_Content_Feature',
-			__('Designed4Pixels Content Feature', 'designed4pixels'),
+			__('D4P: Content Feature', 'designed4pixels'),
 			array( 'description' => __( 'Add a Content Background to a Home Page Featured Section.', 'designed4pixels' ), )
 		);
 	}

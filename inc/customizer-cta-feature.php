@@ -33,6 +33,46 @@ foreach ( $widget_settings as $number => $value ) {
 		));
 
 
+				/* Set-up the Custom Header Site Description Custom Font */
+
+		$wp_customize->add_setting( 'd4p_cta_feature_heading_font_' . $number,
+			array(
+				'default' => 'Source Sans Pro',
+    			'transport'   => 'postMessage',
+		));
+
+
+		$wp_customize->add_control( new WP_Customize_Font_Control( $wp_customize, 'd4p_cta_feature_heading_font_' . $number,
+    		array(
+        		'type' => 'select_font',
+        		'select_class' => 'customize-heading-font',
+        		'show_styles'	=> false,
+        		'label' => __('Call-to-Action Heading Font ('. $version . ')', 'designed4pixels' ),
+        		'section' => 'd4p_cta_settings_' . $number,
+        		'choices' => d4p_google_font_options(),
+        )));
+
+
+        /* Set-up the Custom Header Site Description Custom Font */
+
+		$wp_customize->add_setting( 'd4p_cta_feature_body_font_' . $number,
+			array(
+				'default' => 'Source Sans Pro',
+    			'transport'   => 'postMessage',
+		));
+
+
+		$wp_customize->add_control( new WP_Customize_Font_Control( $wp_customize, 'd4p_cta_feature_body_font_' . $number,
+    		array(
+        		'type' => 'select_font',
+        		'select_class' => 'customize-body-font',
+        		'show_styles'	=> false,
+        		'label' => __('Call-to-Action Body Font ('. $version . ')', 'designed4pixels' ),
+        		'section' => 'd4p_cta_settings_' . $number,
+        		'choices' => d4p_google_font_options(),
+        )));
+
+
 		/* ----- Call-to-Action Feature Background Color ----- */
 		
 		$wp_customize->add_setting( 'd4p_cta_feature_background_' . $number,

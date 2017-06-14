@@ -28,7 +28,7 @@ class Designed4Pixels_Parallax_Feature extends WP_Widget {
 	function __construct() {
 		parent::__construct(
 			'Designed4Pixels_Parallax_Feature',
-			__('Designed4Pixels Parallax Feature', 'designed4pixels'),
+			__('D4P: Parallax Feature', 'designed4pixels'),
 			array( 'description' => __( 'Add a Parallax Background to a Home Page Featured Section.', 'designed4pixels' ), )
 		);
 	}

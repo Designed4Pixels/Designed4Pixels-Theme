@@ -47,10 +47,50 @@
     	$wp_customize->add_section( 'd4p_header_colors', 
 			array(
 				'title' => __( 'Header Menu Colors & Fonts', 'designed4pixels', 'designed4pixels' ),
-				'description' => __( 'Customize your Websites Header & Navigation Menu Colors and Fonts.', 'designed4pixels' ),
+				'description' => __( 'Customize your Websites Header or Navigation Menu Colors and Fonts.', 'designed4pixels' ),
 				'priority'    => 30,
 				'panel' => 'd4p_color_settings',
 		));
+
+
+		/* Set-up the Custom Header Title Custom Font */
+
+		$wp_customize->add_setting( 'd4p_header_title_custom_font',
+			array(
+				'default' => 'Source Sans Pro',
+    			'transport'   => 'postMessage',
+		));
+
+
+		$wp_customize->add_control( new WP_Customize_Font_Control( $wp_customize, 'd4p_header_title_custom_font',
+    		array(
+        		'type' => 'select_font',
+        		'select_class' => 'customize-heading-font',
+        		'show_styles'	=> false,
+        		'label' => __('Site Title Font:', 'designed4pixels' ),
+        		'section' => 'd4p_header_colors',
+        		'choices' => d4p_google_font_options(),
+        )));
+
+
+        /* Set-up the Custom Header Site Description Custom Font */
+
+		$wp_customize->add_setting( 'd4p_header_description_custom_font',
+			array(
+				'default' => 'Source Sans Pro',
+    			'transport'   => 'postMessage',
+		));
+
+
+		$wp_customize->add_control( new WP_Customize_Font_Control( $wp_customize, 'd4p_header_description_custom_font',
+    		array(
+        		'type' => 'select_font',
+        		'select_class' => 'customize-body-font',
+        		'show_styles'	=> false,
+        		'label' => __('Site Description Font:', 'designed4pixels' ),
+        		'section' => 'd4p_header_colors',
+        		'choices' => d4p_google_font_options(),
+        )));
 
 
 		/* Set-up Infobar background Color */
@@ -330,42 +370,5 @@
 				)
 			)
 		);
-
-
-    	/* Set-up the Custom Header Title Custom Font */
-
-		$wp_customize->add_setting( 'd4p_header_title_custom_font',
-			array(
-				'default' => 'Source Sans Pro',
-    			'transport'   => 'postMessage',
-		));
-
-
-		$wp_customize->add_control( 'd4p_header_title_custom_font',
-    		array(
-        		'type' => 'select',
-        		'label' => __('Site Title Font:', 'designed4pixels' ),
-        		'section' => 'd4p_header_colors',
-        		'choices' => d4p_google_font_options()
-        ));
-
-
-        /* Set-up the Custom Header Site Description Custom Font */
-
-		$wp_customize->add_setting( 'd4p_header_description_custom_font',
-			array(
-				'default' => 'Source Sans Pro',
-    			'transport'   => 'postMessage',
-		));
-
-
-		$wp_customize->add_control( 'd4p_header_description_custom_font',
-    		array(
-        		'type' => 'select',
-        		'label' => __('Site Description Font:', 'designed4pixels' ),
-        		'section' => 'd4p_header_colors',
-        		'choices' => d4p_google_font_options()
-        ));
-
 
     	/* End of Header Settings */

@@ -155,43 +155,54 @@
 
     function d4p_customizer_live_preview() {
 
-    wp_register_script( 
-      'd4p-theme-customizer',                                                       // Give the script an ID
-        get_template_directory_uri() . '/assets/js/theme-customizer.min.js',        // Point to customizer js file
-        array( 'jquery','customize-preview' ),                                      // Define dependencies
-        '',                                                                         // Define a version (optional) 
-        true                                                                        // Put script in footer?
-    );
 
-       wp_enqueue_script( 'd4p-theme-customizer' );
-         
+        wp_register_script( 
+          'd4p-theme-customizer',                                                 // Give the script an ID
+          get_template_directory_uri() . '/assets/js/theme-customizer.min.js',    // Point to customizer js file
+          array( 'jquery','customize-preview' ),                                  // Define dependencies
+          '',                                                                     // Define a version (optional) 
+          true                                                                    // Put script in footer?
+        );
+
+        wp_enqueue_script( 'd4p-theme-customizer' );
+
+        $google_fonts_list = (array) get_theme_mod( 'd4p_google_fonts_list' );
+        wp_localize_script( 'd4p-theme-customizer', 'googleFontList', $google_fonts_list );
+
+        // Retrieve the Content Widget Settings to send to Preview Script
+        $content_widget_settings = get_theme_mod( 'd4p_content_feature_widget_settings');
+        wp_localize_script( 'd4p-theme-customizer', 'contentFeatList', $content_widget_settings );     
   }
   // Enqueue live preview javascript in Theme Customizer admin screen.
   add_action( 'customize_preview_init' , 'd4p_customizer_live_preview' );
 
 
-  function d4p_panels_js() {
+    function d4p_panels_js() {
 
-    wp_register_script( 
-      'd4p-customize-controls',
-      get_theme_file_uri( '/assets/js/theme-customizer-controls.min.js' ),
-      array( 'customize-controls', 'wp-util' ),
-      '1.0',
-      true
-    );
+            wp_register_script( 
+                    'd4p-customize-controls',
+                    get_theme_file_uri( '/assets/js/theme-customizer-controls.min.js' ),
+                    array( 'customize-controls', 'wp-util' ),
+                    '1.0',
+                    true
+            );
 
     wp_enqueue_script( 'd4p-customize-controls' );
 
     wp_localize_script( 'd4p-customize-controls', 'colorScheme', d4p_color_default_settings() );
 
     wp_localize_script( 'd4p-customize-controls', 'defaultSettings', d4p_default_settings() );
+
+    $google_fonts_list = (array) get_theme_mod( 'd4p_google_fonts_list' );
     
-    $d4p_master_font_one = get_theme_mod( 'd4p_master_font_one', 'Advent+Pro');
-    $d4p_master_font_two = get_theme_mod( 'd4p_master_font_two', 'Acme');
+    $d4p_master_font_one = $google_fonts_list[ get_theme_mod( 'd4p_master_font_one', 'Source Sans Pro') ];
+    $d4p_master_font_two = $google_fonts_list[ get_theme_mod( 'd4p_master_font_two', 'Source Sans Pro') ];
+    $d4p_master_font_three = $google_fonts_list[ get_theme_mod( 'd4p_master_font_three', 'Source Sans Pro') ];
+    $d4p_master_font_four = $google_fonts_list[ get_theme_mod( 'd4p_master_font_four', 'Source Sans Pro') ];
     
     $query_args = array(
-    'family' => ''. $d4p_master_font_one . '|' . $d4p_master_font_two .'',
-  );
+            'family' => ''. $d4p_master_font_one . '|' . $d4p_master_font_two . '|' . $d4p_master_font_three . '|' . $d4p_master_font_four .'',
+    );
   
   wp_register_style( 'customizer-custom-fonts', add_query_arg( $query_args, "//fonts.googleapis.com/css" ), array(), '' );
   wp_enqueue_style( 'customizer-custom-fonts' );
@@ -216,11 +227,31 @@
 
     global $wp_styles;
 
-    $d4p_master_font_one = get_theme_mod( 'd4p_master_font_one', 'Advent+Pro');
-    $d4p_master_font_two = get_theme_mod( 'd4p_master_font_two', 'Acme');
+    $master_font_list = (array) get_theme_mod( 'd4p_google_fonts_list' );
+
+      // Copy the Master Google Font selections into array
+
+      $d4p_master_font_one = get_theme_mod( 'd4p_google_font_option_one', 'Source Sans Pro' );
+      $d4p_master_font_two = get_theme_mod( 'd4p_google_font_option_two', 'Source Sans Pro' );
+      $d4p_master_font_three = get_theme_mod( 'd4p_google_font_option_three', 'Source Sans Pro' );
+      $d4p_master_font_four = get_theme_mod( 'd4p_google_font_option_four', 'Source Sans Pro' );
+
+      $selected_fonts_list = array(
+              "Source Sans Pro" => "Source+Sans+Pro",
+              $d4p_master_font_one    => $master_font_list[ $d4p_master_font_one ],
+              $d4p_master_font_two    => $master_font_list[ $d4p_master_font_two ],
+              $d4p_master_font_three  => $master_font_list[ $d4p_master_font_three ],
+              $d4p_master_font_four  => $master_font_list[ $d4p_master_font_four ],
+      );
+
+      set_theme_mod( 'd4p_selected_fonts_list', $selected_fonts_list );
+      set_theme_mod( 'd4p_master_font_one', $d4p_master_font_one );
+      set_theme_mod( 'd4p_master_font_two', $d4p_master_font_two );
+      set_theme_mod( 'd4p_master_font_three', $d4p_master_font_three );
+      set_theme_mod( 'd4p_master_font_four', $d4p_master_font_four );
     
     $query_args = array(
-    'family' => ''. $d4p_master_font_one . '|' . $d4p_master_font_two .'',
+    'family' => ''. $master_font_list[ $d4p_master_font_one ] . '|' . $master_font_list[ $d4p_master_font_two ] . '|' . $master_font_list[ $d4p_master_font_three ] . '|' . $master_font_list[ $d4p_master_font_four ] .'',
   );
   
   wp_register_style( 'google-custom-fonts', add_query_arg( $query_args, "//fonts.googleapis.com/css" ), array(), '' );
