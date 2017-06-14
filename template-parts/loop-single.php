@@ -10,9 +10,11 @@
     </header> <!-- end article header -->
 					
     <section class="entry-content" itemprop="articleBody">
-    	<div class="featured-image">
-			<?php the_post_thumbnail('single-post'); ?>
-		</div>
+    	<?php if ( get_post_type( get_the_ID() ) != get_option( 'd4p_content_type' ) ) { ?>
+    		<div class="featured-image">
+				<?php the_post_thumbnail('single-post'); ?>
+			</div>
+		<?php } ?>
 		<?php the_content(); ?>
 	</section> <!-- end article section -->
 	

@@ -1,12 +1,29 @@
 <?php get_header(); ?>
 
-<?php do_action( 'd4p_after_header' ); ?>
+<?php do_action( 'd4p_after_header' ); 
+
+    // Retrieve the stored custom field data from the database
+    $custom_field1 = get_post_meta( get_the_ID(), 'custom_field1', true );
+    $custom_field2 = get_post_meta( get_the_ID(), 'custom_field2', true );
+    $custom_field3 = get_post_meta( get_the_ID(), 'custom_field3', true );
+    $custom_field4 = get_post_meta( get_the_ID(), 'custom_field4', true );
+    $custom_field5 = get_post_meta( get_the_ID(), 'custom_field5', true );
+    $custom_field6 = get_post_meta( get_the_ID(), 'custom_field6', true );  ?>
 			
 <div id="content">
 	
 		<div id="inner-content" class="row">
 
-		<main id="main" class="large-8 medium-8 columns" role="main">
+    <?php if (( get_post_type( get_the_ID() ) == get_option( 'd4p_content_type' )) && (( ! empty( $custom_field1 )) || ( ! empty( $custom_field3 )) || ( ! empty( $custom_field5 )) || ( is_active_sidebar( 'archive-sidebar' ) ))) { ?>
+
+		        <main id="main" class="large-8 medium-8 columns" role="main">
+
+    <?php } else { ?>
+
+            <main id="main" class="large-10 medium-10 large-centered columns" role="main">
+
+    <?php } ?>
+
 		
 		    <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 		
@@ -22,13 +39,7 @@
 
     <?php
 
-    // Retrieve the stored custom field data from the database
-    $custom_field1 = get_post_meta( get_the_ID(), 'custom_field1', true );
-    $custom_field2 = get_post_meta( get_the_ID(), 'custom_field2', true );
-    $custom_field3 = get_post_meta( get_the_ID(), 'custom_field3', true );
-    $custom_field4 = get_post_meta( get_the_ID(), 'custom_field4', true );
-    $custom_field5 = get_post_meta( get_the_ID(), 'custom_field5', true );
-    $custom_field6 = get_post_meta( get_the_ID(), 'custom_field6', true );
+/* original custom fields position */
 
     ?>
 
@@ -79,9 +90,13 @@
 
       </div>
 
-		<?php } else {?>
+		<?php } elseif ( is_active_sidebar( 'archive-sidebar' ) ) { ?>
 
-        <?php get_sidebar( 'sidebar1' );?>
+        <div id="sidebar1" class="sidebar large-4 medium-4 columns" >
+
+                <?php dynamic_sidebar( 'archive-sidebar' );?>
+
+        </div>
 
     <?php } ?>
 
