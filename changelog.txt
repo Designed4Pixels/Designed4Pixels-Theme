@@ -1,7 +1,12 @@
 CHANGELOG
 
+= 0.8.1 =
+Date: 15th June 2017
+* Minor tidy-up of Custom Post Type pages.
+* Improvements to Google Font Support.
+
 = 0.8.0 =
-Date: 29th May 2017
+Date: 11th June 2017
 * Fixed WooCommerce Font Problem & Color CSS.
 * Added Custom WooCommerce Color Settings page.
 * Added Google Font Support.
